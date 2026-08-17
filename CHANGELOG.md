@@ -58,14 +58,14 @@
 - Added a **Whitelist** module that discovers current enemies, starts them as valid targets, and lets the user protect individual players or all enemies from the local targeting path.
 - Restored the Whitelist's live pawn-level enforcement: target/protected changes now update the roster immediately and are applied before local target selection, including after respawns and team changes.
 - Integrated the existing **Manual AA** controls with Aimware's native Anti-Aim settings, including left, right and forward directions plus compact optional on-screen indicators.
-- Reworked the navigation typography and header wordmark: the `RGN` mark is centered, module labels use clearer title case, and all long control, dropdown and status labels now stay inside their panel boundaries.
+- Reworked the navigation typography and header wordmark: the `neo` mark is centered, module labels use clearer title case, and all long control, dropdown and status labels now stay inside their panel boundaries.
 - Preserved the existing cosmetics, agents, custom characters, custom sounds, scope overlay, movement, identity, Killsay and vote modules.
 
 ## 1.3.2 - 2026-07-21
 
 ### Refined interface and primary loader
 
-- Replaced the embedded Base64 PNG logo and its decoder with a compact native `RGN` monogram rendered through Aimware's documented drawing API.
+- Replaced the embedded Base64 PNG logo and its decoder with a compact native `neo` monogram rendered through Aimware's documented drawing API.
 - Reduced the minimized header footprint while preserving the existing menu layout, drag behavior and expand control.
 - Consolidated stale callback cleanup and shortened startup diagnostics without changing module behavior or runtime timing.
 - Removed unused UI bootstrap state and repetitive successful module messages; actionable errors remain visible in the Aimware console.
