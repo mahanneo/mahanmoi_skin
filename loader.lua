@@ -3,13 +3,13 @@
 
 local LOADER_VERSION = "1.1.0"
 local USER = "mahanneo"
-local REPO = "mahanmoi_skin"
+local REPO = "mahanmoi"
 local BRANCH = "main"
 local BASE = "https://raw.githubusercontent.com/" .. USER .. "/" .. REPO .. "/" .. BRANCH .. "/"
 
 local MANIFEST_FILE = "mahanmoi_local_version.txt"
 local CACHE_FILE = "mahanmoi_source_cache.txt"
-local EXPECTED_SIGNATURE = "mahanmoi_SOURCE_V1"
+local EXPECTED_SIGNATURE = "NEO_MAHANMOI_SOURCE_V1"
 local DEFAULT_MIN_BYTES = 250000
 
 local function readFile(path)
