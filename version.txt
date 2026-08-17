@@ -1,4 +1,4 @@
 version=1.4.5
-source=rgnMultitool.lua
+source=mahanmoi_skin.lua
 min_bytes=300000
-signature=RGN_MULTITOOL_SOURCE_V1
+signature=mahanmoi_SOURCE_V1
