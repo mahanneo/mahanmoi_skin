@@ -1,6 +1,6 @@
 # Notices and credits
 
-Copyright (c) 2026 ragnarokcs.
+Copyright (c) 2026 mahanneo.
 
 This repository contains the complete source distributed by the rgnMultitool loader. Development used public API information and implementation references from:
 
