@@ -1,4 +1,4 @@
 version=1.4.5
 source=mahanmoi_skin.lua
 min_bytes=300000
-signature=mahanmoi_SOURCE_V1
+signature=NEO_MAHANMOI_SOURCE_V1
