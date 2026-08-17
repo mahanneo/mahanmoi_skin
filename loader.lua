@@ -7,8 +7,8 @@ local REPO = "mahanmoi_skin"
 local BRANCH = "main"
 local BASE = "https://raw.githubusercontent.com/" .. USER .. "/" .. REPO .. "/" .. BRANCH .. "/"
 
-local MANIFEST_FILE = "mahanmoi_skin_local_version.txt"
-local CACHE_FILE = "mahanmoi_skin_source_cache.txt"
+local MANIFEST_FILE = "mahanmoi_local_version.txt"
+local CACHE_FILE = "mahanmoi_source_cache.txt"
 local EXPECTED_SIGNATURE = "mahanmoi_SOURCE_V1"
 local DEFAULT_MIN_BYTES = 250000
 
