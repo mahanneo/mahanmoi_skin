@@ -1,7 +1,8 @@
--- rgnMultitool 1.4.5
-local RGN_MULTITOOL_VERSION = "1.4.5"
-local RGN_MULTITOOL_SIGNATURE = "RGN_MULTITOOL_SOURCE_V1"
-_G.RGN_MULTITOOL_VERSION = RGN_MULTITOOL_VERSION
+-- mahanmoi_skin
+ 1.4.5
+local mahanmoi_VERSION = "1.4.5"
+local mahanmoi_SIGNATURE = "mahanmoi_SOURCE_V1"
+_G.mahanmoi_VERSION = mahanmoi_VERSION
 
 local staleEvents = { "Draw", "CreateMove", "PreMove", "DrawESP", "FireGameEvent", "Unload" }
 local function clearCallbacks(ids)
@@ -13,39 +14,58 @@ local function clearCallbacks(ids)
 end
 
 clearCallbacks({
-    "rgnMultitool_Watermark", "rgnMultitool_MISCLogic",
-    "rgnMultitool_MISCLogicMove", "rgnMultitool_MISCEvents",
-    "rgnMultitool_WeaponsSessionEvents", "rgnMultitool_GameEvents",
-    "rgnMultitool_GameEventsUnload", "rgnMultitool_MISCUnload"
+    "mahanmoi_skin
+_Watermark", "mahanmoi_skin
+_MISCLogic",
+    "mahanmoi_skin
+_MISCLogicMove", "mahanmoi_skin
+_MISCEvents",
+    "mahanmoi_skin
+_WeaponsSessionEvents", "mahanmoi_skin
+_GameEvents",
+    "mahanmoi_skin
+_GameEventsUnload", "mahanmoi_skin
+_MISCUnload"
 })
 if type(M) == "table" and type(M.Watermark) == "function" then
     pcall(M.Watermark, M, false)
 end
 
 if type(UnloadScript) == "function" then
-    pcall(UnloadScript, "rgnSkins.lua")
-    pcall(UnloadScript, "rgnMisc.lua")
-    pcall(UnloadScript, "rgnWEAPONS.lua")
+    pcall(UnloadScript, "neoSkins.lua")
+    pcall(UnloadScript, "neoMisc.lua")
+    pcall(UnloadScript, "neoWEAPONS.lua")
     pcall(UnloadScript, "manual_aa.lua")
     pcall(UnloadScript, "whitelist.lua")
 end
 
 clearCallbacks({
-    "rgnSkins_UIDraw", "rgnSkins_UIInput", "rgnSkins_UIUnload",
-    "rgnSkins_StableEvents", "rgnSkins_SpawnWatch", "rgnSkins_SetModelUnload",
-    "rgnMISC_UIDraw", "rgnMISC_UIInput", "rgnMISC_UIUnload",
-    "rgnMISC_Logic", "rgnMISC_Events", "rgnMISC_Unload",
-    "rgnWEAPONS_UIDraw", "rgnWEAPONS_UIInput", "rgnWEAPONS_UIUnload",
-    "rgnWEAPONS_Engine", "rgnWEAPONS_Unload", "rgnWEAPONS_Watermark",
-    "rgnWEAPONS_LateMesh",
-    "rgnMultitool_ManualAADraw", "rgnMultitool_ManualAAMove",
-    "rgnMultitool_ManualAAUnload", "rgnMultitool_WhitelistRefresh",
-    "rgnMultitool_WhitelistPanel", "rgnMultitool_WhitelistESP", "rgnMultitool_WhitelistUnload",
-    "rgnMultitool_KillTimerDraw", "rgnMultitool_KillTimerUnload",
-    "rgnMultitool_RegionDraw", "rgnMultitool_RegionUnload"
+    "neoSkins_UIDraw", "neoSkins_UIInput", "neoSkins_UIUnload",
+    "neoSkins_StableEvents", "neoSkins_SpawnWatch", "neoSkins_SetModelUnload",
+    "neoMISC_UIDraw", "neoMISC_UIInput", "neoMISC_UIUnload",
+    "neoMISC_Logic", "neoMISC_Events", "neoMISC_Unload",
+    "neoWEAPONS_UIDraw", "neoWEAPONS_UIInput", "neoWEAPONS_UIUnload",
+    "neoWEAPONS_Engine", "neoWEAPONS_Unload", "neoWEAPONS_Watermark",
+    "neoWEAPONS_LateMesh",
+    "mahanmoi_skin
+_ManualAADraw", "mahanmoi_skin
+_ManualAAMove",
+    "mahanmoi_skin
+_ManualAAUnload", "mahanmoi_skin
+_WhitelistRefresh",
+    "mahanmoi_skin
+_WhitelistPanel", "mahanmoi_skin
+_WhitelistESP", "mahanmoi_skin
+_WhitelistUnload",
+    "mahanmoi_skin
+_KillTimerDraw", "mahanmoi_skin
+_KillTimerUnload",
+    "mahanmoi_skin
+_RegionDraw", "mahanmoi_skin
+_RegionUnload"
 })
 
-local __RGN_GUILIB = [===[
+local __neo_GUILIB = [===[
 local M = {}
 M.VERSION = "1.0"
 
@@ -67,7 +87,7 @@ local T = {
     widgethi  = { 26, 36, 48, 255 },
     shadow    = { 0, 0, 0, 115 },
 
-    title     = "rgn",
+    title     = "neo",
     title_tld = "MULTITOOL",
     titlebar  = 58,
     pad       = 18,
@@ -156,7 +176,7 @@ end
 local function drawLogo(x, y, w, h)
     local ok = pcall(function()
         if FONT_LOGO then draw.SetFont(FONT_LOGO) end
-        local label = "RGN"
+        local label = "neo"
         local tw, th = draw.GetTextSize(label)
         -- This runs before the rounded-box helpers are declared.  Keep the
         -- wordmark self-contained so it cannot silently fail during startup.
@@ -688,7 +708,8 @@ function Section:_widget(wd, x, y, w)
         local buttonText = fitText(wd.label, mmax(20, w - 18), FONT)
         text(x + w / 2, y + 6, lerpc(T.text, T.texthi, wd._h), buttonText, FONT, "center")
         if clicked(x, y + 1, w, bh) then
-            local ok, err = pcall(wd.cb); if not ok then print("[rgnMultitool] button error: " .. tostring(err)) end
+            local ok, err = pcall(wd.cb); if not ok then print("[mahanmoi_skin
+] button error: " .. tostring(err)) end
         end
 
     elseif wd.kind == "slider" then
@@ -886,7 +907,8 @@ function Section:_widget(wd, x, y, w)
         if wd.fn then
             UI._x, UI._cy, UI._w = x, y, w
             local ok, err = pcall(wd.fn, UI, x, y, w)
-            if not ok then print("[rgnMultitool] custom widget error: " .. tostring(err)) end
+            if not ok then print("[mahanmoi_skin
+] custom widget error: " .. tostring(err)) end
             local used = UI._cy - y
             wd._measured = used > 0 and used or wd.h
         end
@@ -945,7 +967,8 @@ local function renderSectionAt(s, x, y, w)
     if clipTop and (y + h) <= clipTop then return h end
     local rh = h
     local ok, err = pcall(function() rh = s:render(x, y, w) or h end)
-    if not ok then print("[rgnMultitool] section '" .. tostring(s.title) .. "' error: " .. tostring(err)); return h end
+    if not ok then print("[mahanmoi_skin
+] section '" .. tostring(s.title) .. "' error: " .. tostring(err)); return h end
     return rh
 end
 
@@ -1164,7 +1187,8 @@ M._watermark = {
     enabled    = false,
     parts      = { cheat = false, lua = true, user = false, nick = true, fps = true, ping = true },
     cheat_name = "AIMWARE.NET",
-    lua_name   = "rgnMultitool",
+    lua_name   = "mahanmoi_skin
+",
     user       = nil,
     nick       = nil,
     ping       = nil,
@@ -1538,7 +1562,7 @@ function M:_drawWatermark()
 
     local segs = {}
     if wm.parts.cheat then segs[#segs + 1] = nameSeg(wm.cheat_name or "AIMWARE.NET") end
-    if wm.parts.lua   then segs[#segs + 1] = nameSeg(wm.lua_name or "rgnSkins") end
+    if wm.parts.lua   then segs[#segs + 1] = nameSeg(wm.lua_name or "neoSkins") end
     if wm.parts.user  then segs[#segs + 1] = { { tostring(wm.user or "?"), T.text, FONT } } end
     if wm.parts.nick  then segs[#segs + 1] = { { tostring(wm.nick or "?"), T.text, FONT } } end
     if wm.parts.fps   then segs[#segs + 1] = { { floor(wm._fps + 0.5) .. " fps", T.text, FONT } } end
@@ -1644,7 +1668,8 @@ end
 
 function M:_drawTabBar(win)
     drawLogo(win.x + 15, win.y + 15, 40, 28)
-    text(win.x + 67, win.y + 11, T.texthi, "rgnMultitool", FONT_LOGO)
+    text(win.x + 67, win.y + 11, T.texthi, "mahanmoi_skin
+", FONT_LOGO)
     text(win.x + 67, win.y + 33, T.textdim, "Aimware Lua Suite", FONT_SMALL)
     local credit = fitText("Made by " .. aimwareHeaderUser(), 180, FONT_SMALL)
     text(win.x + win.w - 50, win.y + 22, T.textdim, credit, FONT_SMALL, "right")
@@ -1909,7 +1934,8 @@ function M:_frame()
         rbox(real.x, real.y, miniW, miniH, 9, T.bg, T.border)
         rfill(real.x, real.y, miniW, 2, 9, T.accent, true, true, false, false)
         drawLogo(real.x + 7, real.y + 8, 36, 26)
-        text(real.x + 53, real.y + 13, T.texthi, "rgnMultitool", FONT_LOGO)
+        text(real.x + 53, real.y + 13, T.texthi, "mahanmoi_skin
+", FONT_LOGO)
         rbox(expandX, real.y + 10, 22, 22, 5, T.widget, T.border)
         text(expandX + 11, real.y + 12, T.texthi, "+", FONT_B, "center")
         return
@@ -2003,7 +2029,8 @@ function M:_frame()
     clipTop, clipBottom = win.y + T.titlebar, win.y + win.h - 2
     if tab then
         local ok, err = pcall(function() tab:render(cx, cy, cw) end)
-        if not ok then print("[rgnMultitool] tab '" .. tostring(tab.name) .. "' error: " .. tostring(err)) end
+        if not ok then print("[mahanmoi_skin
+] tab '" .. tostring(tab.name) .. "' error: " .. tostring(err)) end
     end
     clipTop, clipBottom = nil, nil
 
@@ -2084,7 +2111,8 @@ function M:Build(opts)
     _getWheel = resolveWheel()
     _clock    = resolveClock()
     initFonts()
-    if not _getMouse then print("[rgnMultitool] WARNING: mouse position API not found -- cursor won't track") end
+    if not _getMouse then print("[mahanmoi_skin
+] WARNING: mouse position API not found -- cursor won't track") end
 
     local menuRef
     pcall(function() menuRef = gui.Reference("MENU") end)
@@ -2104,7 +2132,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if self._whitelistRuntimeError ~= message then
                     self._whitelistRuntimeError = message
-                    print("[rgnWhitelist] main runtime error: " .. message)
+                    print("[neoWhitelist] main runtime error: " .. message)
                 end
             end
         end
@@ -2119,7 +2147,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if self._movementDrawError ~= message then
                     self._movementDrawError = message
-                    print("[rgnMovement] main Draw hook error: " .. message)
+                    print("[neoMovement] main Draw hook error: " .. message)
                 end
             end
         end
@@ -2134,7 +2162,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if self._killsayDrawError ~= message then
                     self._killsayDrawError = message
-                    print("[rgnKillsay] main Draw hook error: " .. message)
+                    print("[neoKillsay] main Draw hook error: " .. message)
                 end
             end
         end
@@ -2148,7 +2176,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if self._scopeDrawError ~= message then
                     self._scopeDrawError = message
-                    print("[rgnScope] main Draw hook error: " .. message)
+                    print("[neoScope] main Draw hook error: " .. message)
                 end
             end
         end
@@ -2163,7 +2191,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if self._manualAADrawError ~= message then
                     self._manualAADrawError = message
-                    print("[rgnManualAA] main Draw hook error: " .. message)
+                    print("[neoManualAA] main Draw hook error: " .. message)
                 end
             end
         end
@@ -2178,7 +2206,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if self._whitelistDrawError ~= message then
                     self._whitelistDrawError = message
-                    print("[rgnWhitelist] main Draw hook error: " .. message)
+                    print("[neoWhitelist] main Draw hook error: " .. message)
                 end
             end
         end
@@ -2193,13 +2221,14 @@ function M:Build(opts)
                 local message = tostring(err)
                 if self._killTimerDrawError ~= message then
                     self._killTimerDrawError = message
-                    print("[rgnKillTimer] main Draw hook error: " .. message)
+                    print("[neoKillTimer] main Draw hook error: " .. message)
                 end
             end
         end
     end
 
-    callbacks.Register("Draw", "rgnMultitool_UIDraw", function()
+    callbacks.Register("Draw", "mahanmoi_skin
+_UIDraw", function()
         local open = true
         if menuRef then pcall(function() open = menuRef:IsActive() end) end
         self._open = open
@@ -2242,12 +2271,14 @@ function M:Build(opts)
         end
 
         local ok, err = pcall(function() self:_frame() end)
-        if not ok then print("[rgnMultitool] frame error: " .. tostring(err)) end
+        if not ok then print("[mahanmoi_skin
+] frame error: " .. tostring(err)) end
         drawRuntimeOverlays(t)
     end)
 
     pcall(function()
-        callbacks.Register("CreateMove", "rgnMultitool_UIInput", function(cmd)
+        callbacks.Register("CreateMove", "mahanmoi_skin
+_UIInput", function(cmd)
         local viewmodelCommandActive = M._viewmodelCommandActive
         if cmd and type(M._viewmodelCommandCallback) == "function"
             and (type(viewmodelCommandActive) ~= "function" or viewmodelCommandActive()) then
@@ -2259,7 +2290,8 @@ function M:Build(opts)
                 local message = tostring(err)
                 if M._viewmodelCommandError ~= message then
                     M._viewmodelCommandError = message
-                    print("[rgnMultitool] viewmodel command hook error: " .. message)
+                    print("[mahanmoi_skin
+] viewmodel command hook error: " .. message)
                 end
             end
         end
@@ -2274,7 +2306,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if M._movementCommandError ~= message then
                     M._movementCommandError = message
-                    print("[rgnMovement] main CreateMove hook error: " .. message)
+                    print("[neoMovement] main CreateMove hook error: " .. message)
                 end
             end
         end
@@ -2290,7 +2322,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if M._whitelistCommandError ~= message then
                     M._whitelistCommandError = message
-                    print("[rgnWhitelist] main CreateMove hook error: " .. message)
+                    print("[neoWhitelist] main CreateMove hook error: " .. message)
                 end
             end
         end
@@ -2304,7 +2336,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if M._manualAACommandError ~= message then
                     M._manualAACommandError = message
-                    print("[rgnManualAA] main CreateMove hook error: " .. message)
+                    print("[neoManualAA] main CreateMove hook error: " .. message)
                 end
             end
         end
@@ -2321,7 +2353,7 @@ function M:Build(opts)
                 local message = tostring(err)
                 if M._voteLogicError ~= message then
                     M._voteLogicError = message
-                    print("[rgnVotes] main CreateMove hook error: " .. message)
+                    print("[neoVotes] main CreateMove hook error: " .. message)
                 end
             end
         end
@@ -2338,9 +2370,12 @@ function M:Build(opts)
     end)
 
     pcall(function()
-        callbacks.Register("Unload", "rgnMultitool_UIUnload", function()
-            pcall(callbacks.Unregister, "Draw", "rgnMultitool_UIDraw")
-            pcall(callbacks.Unregister, "CreateMove", "rgnMultitool_UIInput")
+        callbacks.Register("Unload", "mahanmoi_skin
+_UIUnload", function()
+            pcall(callbacks.Unregister, "Draw", "mahanmoi_skin
+_UIDraw")
+            pcall(callbacks.Unregister, "CreateMove", "mahanmoi_skin
+_UIInput")
         end)
     end)
 
@@ -2349,12 +2384,16 @@ end
 
 return M
 ]===]
-local __chunk, __err = loadstring(__RGN_GUILIB, "=rgnMultitool_guilib.lua")
-if not __chunk then print("[rgnMultitool] UI compile error: " .. tostring(__err)); return end
+local __chunk, __err = loadstring(__neo_GUILIB, "=mahanmoi_skin
+_guilib.lua")
+if not __chunk then print("[mahanmoi_skin
+] UI compile error: " .. tostring(__err)); return end
 local __ok, M = pcall(__chunk)
-if not __ok or type(M) ~= "table" then print("[rgnMultitool] UI load error: " .. tostring(M)); return end
-local RGN_MULTI = rawget(_G, "RGN_MULTITOOL_STATE") or {}
-local CUSTOM_MODE_FILE = "rgnmultitool_custom_enabled.txt"
+if not __ok or type(M) ~= "table" then print("[mahanmoi_skin
+] UI load error: " .. tostring(M)); return end
+local neo_MULTI = rawget(_G, "mahanmoi_STATE") or {}
+local CUSTOM_MODE_FILE = "mahanmoi_skin
+_custom_enabled.txt"
 local function loadCustomEnabled()
     local value
     pcall(function()
@@ -2371,52 +2410,52 @@ local function saveCustomEnabled(enabled)
     end)
 end
 
-RGN_MULTI.customEnabled = loadCustomEnabled()
-RGN_MULTI.characterMode = RGN_MULTI.customEnabled and "custom" or "none"
-RGN_MULTI.setAgentEnabled = nil
-RGN_MULTI.setCustomEnabled = nil
-RGN_MULTI.suspendCustomModel = nil
+neo_MULTI.customEnabled = loadCustomEnabled()
+neo_MULTI.characterMode = neo_MULTI.customEnabled and "custom" or "none"
+neo_MULTI.setAgentEnabled = nil
+neo_MULTI.setCustomEnabled = nil
+neo_MULTI.suspendCustomModel = nil
 
-function RGN_MULTI.activateAgents(reason)
-    RGN_MULTI.customEnabled = false
-    RGN_MULTI.characterMode = "agents"
-    RGN_MULTI.reason = reason or "official agents enabled"
+function neo_MULTI.activateAgents(reason)
+    neo_MULTI.customEnabled = false
+    neo_MULTI.characterMode = "agents"
+    neo_MULTI.reason = reason or "official agents enabled"
     saveCustomEnabled(false)
-    if RGN_MULTI.suspendCustomModel then pcall(RGN_MULTI.suspendCustomModel) end
-    if RGN_MULTI.setCustomEnabled then pcall(RGN_MULTI.setCustomEnabled, false) end
-    if RGN_MULTI.setAgentEnabled then pcall(RGN_MULTI.setAgentEnabled, true) end
+    if neo_MULTI.suspendCustomModel then pcall(neo_MULTI.suspendCustomModel) end
+    if neo_MULTI.setCustomEnabled then pcall(neo_MULTI.setCustomEnabled, false) end
+    if neo_MULTI.setAgentEnabled then pcall(neo_MULTI.setAgentEnabled, true) end
 end
 
-function RGN_MULTI.activateCustom(reason)
-    RGN_MULTI.customEnabled = true
-    RGN_MULTI.characterMode = "custom"
-    RGN_MULTI.reason = reason or "custom characters enabled"
+function neo_MULTI.activateCustom(reason)
+    neo_MULTI.customEnabled = true
+    neo_MULTI.characterMode = "custom"
+    neo_MULTI.reason = reason or "custom characters enabled"
     saveCustomEnabled(true)
-    if RGN_MULTI.setCustomEnabled then pcall(RGN_MULTI.setCustomEnabled, true) end
-    if RGN_MULTI.setAgentEnabled then pcall(RGN_MULTI.setAgentEnabled, false) end
+    if neo_MULTI.setCustomEnabled then pcall(neo_MULTI.setCustomEnabled, true) end
+    if neo_MULTI.setAgentEnabled then pcall(neo_MULTI.setAgentEnabled, false) end
 end
 
-function RGN_MULTI.disableCustom(reason)
-    RGN_MULTI.customEnabled = false
-    if RGN_MULTI.characterMode ~= "agents" then RGN_MULTI.characterMode = "none" end
-    RGN_MULTI.reason = reason or "custom characters disabled"
+function neo_MULTI.disableCustom(reason)
+    neo_MULTI.customEnabled = false
+    if neo_MULTI.characterMode ~= "agents" then neo_MULTI.characterMode = "none" end
+    neo_MULTI.reason = reason or "custom characters disabled"
     saveCustomEnabled(false)
-    if RGN_MULTI.suspendCustomModel then pcall(RGN_MULTI.suspendCustomModel) end
-    if RGN_MULTI.setCustomEnabled then pcall(RGN_MULTI.setCustomEnabled, false) end
+    if neo_MULTI.suspendCustomModel then pcall(neo_MULTI.suspendCustomModel) end
+    if neo_MULTI.setCustomEnabled then pcall(neo_MULTI.setCustomEnabled, false) end
 end
 
-function RGN_MULTI.deactivateAgents(reason)
-    if RGN_MULTI.setAgentEnabled then pcall(RGN_MULTI.setAgentEnabled, false) end
-    RGN_MULTI.characterMode = RGN_MULTI.customEnabled and "custom" or "none"
-    RGN_MULTI.reason = reason or "official agents disabled"
+function neo_MULTI.deactivateAgents(reason)
+    if neo_MULTI.setAgentEnabled then pcall(neo_MULTI.setAgentEnabled, false) end
+    neo_MULTI.characterMode = neo_MULTI.customEnabled and "custom" or "none"
+    neo_MULTI.reason = reason or "official agents disabled"
 end
 
-_G.RGN_MULTITOOL_STATE = RGN_MULTI
+_G.mahanmoi_STATE = neo_MULTI
 
 local function loadModule(name, fn)
     local ok, err = pcall(fn)
     if not ok then
-        print("[rgn] " .. name .. ": " .. tostring(err))
+        print("[neo] " .. name .. ": " .. tostring(err))
         return false
     end
     return true
@@ -2426,7 +2465,7 @@ end
 -- The old ANSI WinAPI path worked on the author's PC, but silently returned
 -- an empty catalogue when a Steam library contained non-ASCII characters.
 -- Keep all paths UTF-8 in Lua and use the wide Windows APIs at the boundary.
-local RGN_ASSET_FS = {
+local neo_ASSET_FS = {
     available = false,
     reason = "Allow insecure FFI is disabled",
 }
@@ -2445,7 +2484,7 @@ do
                 uint32_t reserved0, reserved1;
                 uint16_t filename[260];
                 uint16_t alternate[14];
-            } RGN_ASSET_FIND_DATAW;
+            } neo_ASSET_FIND_DATAW;
             void* GetModuleHandleA(const char*);
             void* GetProcAddress(void*, const char*);
         ]] end)
@@ -2584,7 +2623,7 @@ do
                 return bitlib.band(tonumber(value) or 0, flag) ~= 0
             end
 
-            function RGN_ASSET_FS.resolve(relativeDirectory)
+            function neo_ASSET_FS.resolve(relativeDirectory)
                 local root = gameRoot()
                 if not root then return nil, "CS2 game/csgo folder could not be resolved" end
                 relativeDirectory = tostring(relativeDirectory or ""):gsub("/", "\\")
@@ -2593,8 +2632,8 @@ do
                 return root .. "\\" .. relativeDirectory
             end
 
-            function RGN_ASSET_FS.ensureDirectory(relativeDirectory)
-                local path, reason = RGN_ASSET_FS.resolve(relativeDirectory)
+            function neo_ASSET_FS.ensureDirectory(relativeDirectory)
+                local path, reason = neo_ASSET_FS.resolve(relativeDirectory)
                 if not path then return nil, reason end
                 local wide = utf8ToWide(path)
                 if not wide then return nil, "folder path is not valid UTF-8" end
@@ -2602,7 +2641,7 @@ do
                 return path
             end
 
-            function RGN_ASSET_FS.scan(relativeDirectory, extension, maxDepth, maxFiles)
+            function neo_ASSET_FS.scan(relativeDirectory, extension, maxDepth, maxFiles)
                 local root = gameRoot()
                 if not root then
                     return nil, nil, nil, "CS2 game/csgo folder could not be resolved"
@@ -2621,7 +2660,7 @@ do
                     if depth > maxDepth or capped then return end
                     local pattern = utf8ToWide(directory .. "\\*")
                     if not pattern then return end
-                    local data = f.new("RGN_ASSET_FIND_DATAW")
+                    local data = f.new("neo_ASSET_FIND_DATAW")
                     local handle = findFirstW(pattern, data)
                     if handle == nil or handle == INVALID then return end
                     if depth == 0 then rootOpened = true end
@@ -2654,20 +2693,21 @@ do
                 return files, root, base, reason
             end
 
-            RGN_ASSET_FS.available = true
-            RGN_ASSET_FS.reason = nil
+            neo_ASSET_FS.available = true
+            neo_ASSET_FS.reason = nil
         end)
 
         if not ok then
-            RGN_ASSET_FS.available = false
-            RGN_ASSET_FS.reason = tostring(err)
+            neo_ASSET_FS.available = false
+            neo_ASSET_FS.reason = tostring(err)
         end
     end
 end
 
 loadModule("MANUAL AA", function()
 -- Native Aimware controls stay under Ragebot > Anti-Aim. Runtime drawing and
--- callbacks are owned by rgnMultitool so reloading cannot duplicate them.
+-- callbacks are owned by mahanmoi_skin
+ so reloading cannot duplicate them.
 local rbotAA = gui.Reference("Ragebot", "Anti-Aim")
 local yawOffsetRef = gui.Reference("Ragebot", "Anti-Aim", "Yaw Offset")
 local pitchRef = gui.Reference("Ragebot", "Anti-Aim", "Pitch Angle")
@@ -2867,7 +2907,8 @@ M._manualAADrawActive = function() return true end
 M._manualAACommandCallback = manualMove
 M._manualAACommandActive = function() return enabled:GetValue() == true end
 
-callbacks.Register("Unload", "rgnMultitool_ManualAAUnload", function()
+callbacks.Register("Unload", "mahanmoi_skin
+_ManualAAUnload", function()
     releaseJumpBug()
     restoreOrientation()
     if M._manualAADrawCallback == manualDraw then M._manualAADrawCallback = nil end
@@ -2885,7 +2926,7 @@ local SetModel = {
 }
 local setModelError
 local ffi, bit_ = rawget(_G, "ffi"), rawget(_G, "bit")
-local MODEL_CONFIG_FILE = "rgnskins_character.txt"
+local MODEL_CONFIG_FILE = "neoskins_character.txt"
 
 if type(ffi) ~= "table" or type(bit_) ~= "table" then
     setModelError = "LuaJIT ffi/bit unavailable"
@@ -2899,7 +2940,7 @@ else
             int32_t length;
             uint32_t allocated;
             union { char* p; char s[8]; } data;
-        } RGN_CBufferString;
+        } neo_CBufferString;
     ]] end)
 
     local band, rshift = bit_.band, bit_.rshift
@@ -2974,7 +3015,7 @@ else
         -- Keep the resource alive by precaching immediately before SetModel.
         -- This function is reached only after a respawn/round event and cooldown.
         if not resolvePrecache() then return false end
-        local buffer = ffi.new("RGN_CBufferString")
+        local buffer = ffi.new("neo_CBufferString")
         buffer.length, buffer.allocated, buffer.data.p = 0, 0xC0000008, nil
         local ok = pcall(function()
             fnInsert(buffer, 0, path, -1, 0)
@@ -3027,7 +3068,7 @@ else
 
     local function scheduleApply(reason, freshPawn, delay)
         if not SetModel.path then return end
-        if RGN_MULTI.characterMode ~= "custom" then
+        if neo_MULTI.characterMode ~= "custom" then
             SetModel.phase = "custom characters disabled"
             return
         end
@@ -3096,7 +3137,7 @@ else
 
     function SetModel.ApplyNow(forceFinal)
         if not SetModel.path then return true end
-        if RGN_MULTI.characterMode ~= "custom" then
+        if neo_MULTI.characterMode ~= "custom" then
             SetModel.phase = "custom characters disabled"
             return true
         end
@@ -3159,7 +3200,8 @@ else
     end)
 
     pcall(function()
-        callbacks.Register("FireGameEvent", "rgnMultitool_SkinsEvents", function(event)
+        callbacks.Register("FireGameEvent", "mahanmoi_skin
+_SkinsEvents", function(event)
 
             local name
             pcall(function() name = event:GetName() end)
@@ -3190,13 +3232,14 @@ else
         end)
     end)
 
-    RGN_MULTI.suspendCustomModel = function()
+    neo_MULTI.suspendCustomModel = function()
         applyAt, pendingReason, pendingFreshPawn = nil, nil, false
         finalizingRefresh = false
         if SetModel.path then SetModel.phase = "custom characters disabled" end
     end
 
-    callbacks.Register("CreateMove", "rgnMultitool_SkinsSpawnWatch", function()
+    callbacks.Register("CreateMove", "mahanmoi_skin
+_SkinsSpawnWatch", function()
         tick = tick + 1
         if tick % 8 == 0 then
             local _, alive, pawnKey = pawnState()
@@ -3207,7 +3250,7 @@ else
             wasAlive = alive
             if pawnKey then lastPawnKey = pawnKey end
         end
-        if applyAt and SetModel.path and RGN_MULTI.characterMode == "custom" and clock() >= applyAt then
+        if applyAt and SetModel.path and neo_MULTI.characterMode == "custom" and clock() >= applyAt then
             local _, alive, pawnKey = pawnState()
             if not alive or not pawnKey then
                 -- Do not touch a controller or a pawn that is not ready. The
@@ -3239,7 +3282,7 @@ else
                     else
                         SetModel.error = tostring(err or applyOk)
                         SetModel.phase = "apply failed; waiting for next spawn"
-                        print("[rgnSkins] spawn apply failed: " .. SetModel.error)
+                        print("[neoSkins] spawn apply failed: " .. SetModel.error)
                     end
                 end
             end
@@ -3247,14 +3290,17 @@ else
     end)
 
     pcall(function()
-        callbacks.Register("Unload", "rgnMultitool_SkinsUnload", function()
-            pcall(callbacks.Unregister, "FireGameEvent", "rgnMultitool_SkinsEvents")
-            pcall(callbacks.Unregister, "CreateMove", "rgnMultitool_SkinsSpawnWatch")
+        callbacks.Register("Unload", "mahanmoi_skin
+_SkinsUnload", function()
+            pcall(callbacks.Unregister, "FireGameEvent", "mahanmoi_skin
+_SkinsEvents")
+            pcall(callbacks.Unregister, "CreateMove", "mahanmoi_skin
+_SkinsSpawnWatch")
         end)
     end)
 end
 
-if setModelError then print("[rgnSkins:LITE] " .. setModelError) end
+if setModelError then print("[neoSkins:LITE] " .. setModelError) end
 local savedCharacter = SetModel.GetPath and SetModel.GetPath() or nil
 
 -- Runtime catalogue: populated only from filenames inside csgo/characters.
@@ -3333,7 +3379,7 @@ pcall(function() ffi.cdef[[
         uint32_t reserved0, reserved1;
         char filename[260];
         char alternate[14];
-    } RGN_CHARACTER_FIND_DATA;
+    } neo_CHARACTER_FIND_DATA;
 ]] end)
 
 -- Resolve WinAPI functions as private pointers. Declaring FindFirstFileA in
@@ -3391,7 +3437,7 @@ end
 
 local function listCharacterModels(directory, root, output)
     if not findFirstA or not findNextA or not findClose then return end
-    local data = ffi.new("RGN_CHARACTER_FIND_DATA")
+    local data = ffi.new("neo_CHARACTER_FIND_DATA")
     local handle = findFirstA(directory .. "\\*", data)
     if handle == invalidFindHandle() then return end
     repeat
@@ -3419,9 +3465,9 @@ local root
 local characterScanFolder
 local characterScanReason
 if type(ffi) == "table" and type(bit_) == "table" then
-    if RGN_ASSET_FS.available then
+    if neo_ASSET_FS.available then
         local ok, files, resolvedRoot, folder, reason = pcall(
-            RGN_ASSET_FS.scan,
+            neo_ASSET_FS.scan,
             "characters",
             ".vmdl_c",
             16,
@@ -3444,7 +3490,7 @@ if type(ffi) == "table" and type(bit_) == "table" then
             characterScanReason = ok and "portable scanner returned no catalogue" or tostring(files)
         end
     else
-        characterScanReason = RGN_ASSET_FS.reason
+        characterScanReason = neo_ASSET_FS.reason
         local rootOk, resolvedRoot = pcall(charactersGameRoot)
         if rootOk then root = resolvedRoot end
         if root then
@@ -3461,8 +3507,8 @@ else
 end
 
 if #VALIDATED_MODELS == 0 then
-    print("[rgnSkins] catalogue empty: " .. tostring(characterScanReason or "no compiled .vmdl_c files found"))
-    print("[rgnSkins] expected folder: " .. tostring(characterScanFolder or "game\\csgo\\characters"))
+    print("[neoSkins] catalogue empty: " .. tostring(characterScanReason or "no compiled .vmdl_c files found"))
+    print("[neoSkins] expected folder: " .. tostring(characterScanFolder or "game\\csgo\\characters"))
 end
 
 table.sort(VALIDATED_MODELS, function(a, b)
@@ -3470,7 +3516,7 @@ table.sort(VALIDATED_MODELS, function(a, b)
     return an == bn and a.path:lower() < b.path:lower() or an < bn
 end)
 if #VALIDATED_MODELS == 0 then
-    print("[rgnSkins] SETUP: copy the complete game/csgo/characters folder, enable game scripting + insecure FFI, then rerun")
+    print("[neoSkins] SETUP: copy the complete game/csgo/characters folder, enable game scripting + insecure FFI, then rerun")
 end
 
 -- Only restore paths that still exist in this PC's local catalogue. The spawn
@@ -3484,14 +3530,14 @@ if savedCharacter then
         end
     end
     if not savedCharacterIndex then
-        print("[rgnSkins] saved character is no longer in the validated catalogue")
+        print("[neoSkins] saved character is no longer in the validated catalogue")
         savedCharacter = nil
         if SetModel.SetPath then pcall(SetModel.SetPath, nil) end
     end
 end
 
 if savedCharacter then
-    print("[rgnSkins] restored saved character: " .. savedCharacter)
+    print("[neoSkins] restored saved character: " .. savedCharacter)
 end
 
 local function catalogue(query, categoryIndex)
@@ -3541,8 +3587,8 @@ searchSection:Button("Apply category / search", function()
 end)
 
 local infoSection = tab:Section("Selected character")
-local customEnabledToggle = infoSection:Checkbox("Enable custom characters", RGN_MULTI.customEnabled)
-RGN_MULTI.setCustomEnabled = function(enabled)
+local customEnabledToggle = infoSection:Checkbox("Enable custom characters", neo_MULTI.customEnabled)
+neo_MULTI.setCustomEnabled = function(enabled)
     customEnabledToggle:Set(enabled and true or false)
 end
 local lastCustomEnabled = customEnabledToggle:Get()
@@ -3551,9 +3597,9 @@ M:OnFrame(function()
     if enabled ~= lastCustomEnabled then
         lastCustomEnabled = enabled
         if enabled then
-            RGN_MULTI.activateCustom("custom characters enabled")
+            neo_MULTI.activateCustom("custom characters enabled")
         else
-            RGN_MULTI.disableCustom("custom characters disabled")
+            neo_MULTI.disableCustom("custom characters disabled")
         end
     end
 end)
@@ -3563,20 +3609,20 @@ infoSection:Button("Save for every spawn / team", function()
     if path == "" then M:Notify("select a character first", "error"); return end
     if not SetModel.SetPath or setModelError then
         M:Notify("SetModel unavailable; check console", "error")
-        print("[rgnSkins] SetModel error: " .. tostring(setModelError))
+        print("[neoSkins] SetModel error: " .. tostring(setModelError))
         return
     end
     local callOk, savedOk, result = pcall(SetModel.SetPath, path)
     if not callOk or not savedOk then
-        print("[rgnSkins] SetModel error: " .. tostring(result))
+        print("[neoSkins] SetModel error: " .. tostring(result))
         M:Notify(tostring(result or "SetModel save failed"), "error")
         return
     end
     savedCharacter = path
-    RGN_MULTI.activateCustom("custom character selected")
-    print("[rgnSkins] local model saved for every spawn/team: " .. path)
+    neo_MULTI.activateCustom("custom character selected")
+    print("[neoSkins] local model saved for every spawn/team: " .. path)
     if result then
-        print("[rgnSkins] warning: " .. tostring(result))
+        print("[neoSkins] warning: " .. tostring(result))
         M:Notify("queued for this session; config was not saved", "info")
     else
         M:Notify("saved; applies 1s after every spawn", "success")
@@ -3587,14 +3633,14 @@ infoSection:Button("Turn model override OFF", function()
     if not SetModel.SetPath or setModelError then M:Notify("SetModel unavailable", "error"); return end
     local callOk, savedOk, err = pcall(SetModel.SetPath, nil)
     if not callOk or not savedOk then
-        print("[rgnSkins] SetModel OFF error: " .. tostring(err))
+        print("[neoSkins] SetModel OFF error: " .. tostring(err))
         M:Notify("failed to disable model", "error")
         return
     end
     savedCharacter = nil
-    RGN_MULTI.disableCustom("custom model cleared")
+    neo_MULTI.disableCustom("custom model cleared")
     if err then
-        print("[rgnSkins] warning: " .. tostring(err))
+        print("[neoSkins] warning: " .. tostring(err))
         M:Notify("override disabled; config could not be updated", "info")
     else
         M:Notify("saved model cleared; respawn to restore", "info")
@@ -3604,7 +3650,7 @@ end)
 infoSection:Button("Show model path", function()
     local path = modelPaths[modelList:Get() or 1] or ""
     if path == "" then M:Notify("select a character first", "error"); return end
-    print("[rgnSkins] selected character: " .. path)
+    print("[neoSkins] selected character: " .. path)
     M:Notify("path printed in console", "info")
 end)
 
@@ -3616,8 +3662,8 @@ safetySection:Button("Portable status / requirements", function()
     if setModelError then
         M:Notify("SetModel unavailable; check console", "error")
     elseif #VALIDATED_MODELS == 0 then
-        print("[rgnSkins] scan reason: " .. tostring(characterScanReason or "no compiled files"))
-        print("[rgnSkins] scan folder: " .. tostring(characterScanFolder or "game\\csgo\\characters"))
+        print("[neoSkins] scan reason: " .. tostring(characterScanReason or "no compiled files"))
+        print("[neoSkins] scan folder: " .. tostring(characterScanFolder or "game\\csgo\\characters"))
         if tostring(characterScanReason):find("FFI", 1, true) then
             M:Notify("enable Allow insecure FFI, then rerun", "error")
         elseif tostring(characterScanReason):find("folder", 1, true) then
@@ -3628,7 +3674,7 @@ safetySection:Button("Portable status / requirements", function()
     elseif not SetModel.persistence then
         M:Notify(tostring(#VALIDATED_MODELS) .. " models | enable file permission to save", "info")
     else
-        print("[rgnSkins] scan folder: " .. tostring(characterScanFolder or "game\\csgo\\characters"))
+        print("[neoSkins] scan folder: " .. tostring(characterScanFolder or "game\\csgo\\characters"))
         M:Notify(tostring(#VALIDATED_MODELS) .. " models | portable setup ready", "success")
     end
 end)
@@ -3639,7 +3685,8 @@ local M = M
 -- Lightweight verified viewmodel positioning for this CS2 build.
 
 local ffi = rawget(_G, "ffi")
-local CONFIG_FILE = "rgnmultitool_viewmodel.txt"
+local CONFIG_FILE = "mahanmoi_skin
+_viewmodel.txt"
 local NATIVE_FOV_KEY = "world.fov"
 local DEFAULT = {
     enabled = false, knifeLeft = false,
@@ -4236,7 +4283,8 @@ M._viewmodelCommandCallback = function()
     if not ok then
         knifeHandWasAlive = false
         knifeHandStatus = "error"
-        print("[rgnMultitool] knife-hand error: " .. tostring(err))
+        print("[mahanmoi_skin
+] knife-hand error: " .. tostring(err))
     end
 end
 
@@ -4269,7 +4317,8 @@ M:OnFrame(function()
 end)
 
 pcall(function()
-    callbacks.Register("Unload", "rgnMultitool_ViewmodelUnload", function()
+    callbacks.Register("Unload", "mahanmoi_skin
+_ViewmodelUnload", function()
         pcall(saveConfig)
         if knifeLeftOwned then pcall(commandHand, false) end
         M._viewmodelCommandCallback = nil
@@ -4277,7 +4326,8 @@ pcall(function()
         if fovApplied or fovEnabled:Get() then pcall(restoreFov) end
         if enabled:Get() then pcall(restore) end
         pcall(EXT.uninstall)
-        pcall(callbacks.Unregister, "Unload", "rgnMultitool_ViewmodelUnload")
+        pcall(callbacks.Unregister, "Unload", "mahanmoi_skin
+_ViewmodelUnload")
     end)
 end)
 
@@ -4285,7 +4335,7 @@ end)
 
 loadModule("SCOPE OVERLAY", function()
 local M = M
-local CONFIG_FILE = "rgnscope_config.txt"
+local CONFIG_FILE = "neoscope_config.txt"
 -- Aimware exposes the two native scope layers separately:
 --   world.noscope        -> removes the game's scope presentation
 --   world.noscopeoverlay -> draws Aimware's full-screen replacement cross lines
@@ -4713,14 +4763,16 @@ end)
 syncRemoval()
 
 pcall(function()
-    callbacks.Register("Unload", "rgnMultitool_ScopeUnload", function()
+    callbacks.Register("Unload", "mahanmoi_skin
+_ScopeUnload", function()
         pcall(saveConfig)
         pcall(restoreRemoval)
         pcall(draw.SetTexture, nil)
         scopeTexture = nil
         M._scopeDrawCallback = nil
         M._scopeDrawActive = nil
-        pcall(callbacks.Unregister, "Unload", "rgnMultitool_ScopeUnload")
+        pcall(callbacks.Unregister, "Unload", "mahanmoi_skin
+_ScopeUnload")
     end)
 end)
 
@@ -4728,12 +4780,12 @@ end)
 
 loadModule("WEAPONS", function()
 local M = M
--- rgnWEAPONS - weapon-only frontend for Aimware CS2.
--- The memory engine is loaded separately so rgnSKINS remains untouched.
+-- neoWEAPONS - weapon-only frontend for Aimware CS2.
+-- The memory engine is loaded separately so neoSKINS remains untouched.
 
 -- Remove the legacy render guard from earlier builds when this file is
 -- reloaded without restarting Aimware.
-pcall(function() callbacks.Unregister("Draw", "rgnWEAPONS_LateMesh") end)
+pcall(function() callbacks.Unregister("Draw", "neoWEAPONS_LateMesh") end)
 
 -- Pin the repository revision inspected for this build. Its preview changer
 -- contains the current weapon/viewmodel mesh handling; character code is
@@ -4742,7 +4794,7 @@ local ENGINE_REV = "957eedf27b832e505656475ee57f91b3b14b4340"
 local ENGINE_URL = "https://raw.githubusercontent.com/cachorropacoca/aw_cs2v6_femboytap/" .. ENGINE_REV .. "/preview/femboytap_changer.lua"
 local OFFSETS_URL = "https://raw.githubusercontent.com/a2x/cs2-dumper/main/output/offsets.json"
 local SCHEMA_URL = "https://raw.githubusercontent.com/a2x/cs2-dumper/main/output/client_dll.json"
-local ENGINE_CACHE = "rgnweapons_preview_engine_cache.lua"
+local ENGINE_CACHE = "neoweapons_preview_engine_cache.lua"
 local ENGINE_MIN_SIZE = 90000
 local EMBEDDED_ENGINE = [====[
 local ffi  = ffi
@@ -6279,7 +6331,7 @@ local function fetchEngine()
     local source
     if type(http) == "table" and type(http.Get) == "function" then
         pcall(function()
-            source = http.Get(ENGINE_URL .. "?rgn=" .. tostring({}):gsub("%W", ""))
+            source = http.Get(ENGINE_URL .. "?neo=" .. tostring({}):gsub("%W", ""))
         end)
         if type(source) ~= "string" or #source < ENGINE_MIN_SIZE then
             pcall(function() source = http.Get(ENGINE_URL) end)
@@ -6303,7 +6355,7 @@ local function fetchRuntimeOffsets()
 
     local function fetchCurrent(url, minimum)
         local body
-        pcall(function() body = http.Get(url .. "?rgn=" .. tostring({}):gsub("%W", "")) end)
+        pcall(function() body = http.Get(url .. "?neo=" .. tostring({}):gsub("%W", "")) end)
         if type(body) ~= "string" or #body < minimum then
             pcall(function() body = http.Get(url) end)
         end
@@ -6449,17 +6501,18 @@ end]])
 
     source, okConfig = replaceLiteral(source,
         'local CFG_FILE = "awchanger.txt"',
-        'local CFG_FILE = "rgnweapons_config.txt"')
+        'local CFG_FILE = "neoweapons_config.txt"')
     source, okCallback = replaceLiteral(source,
         'callbacks.Register("CreateMove", function()',
-        'callbacks.Register("CreateMove", "rgnMultitool_WeaponsEngine", function()')
+        'callbacks.Register("CreateMove", "mahanmoi_skin
+_WeaponsEngine", function()')
     local runtimeLiteral = string.format(
         "{ dwEntityList=%s, dwLocalPlayerController=%s, dwNetworkGameClient=%s, dwNetworkGameClient_signOnState=%s }",
         tostring(runtimeOffsets.dwEntityList), tostring(runtimeOffsets.dwLocalPlayerController),
         tostring(runtimeOffsets.dwNetworkGameClient), tostring(runtimeOffsets.dwNetworkGameClient_signOnState))
     source, okRuntime = replaceLiteral(source,
         'local off = {}',
-        'local off = {}\nlocal rgnRuntimeOffsets = ' .. runtimeLiteral)
+        'local off = {}\nlocal neoRuntimeOffsets = ' .. runtimeLiteral)
 
     source, okNetworkedAttributesOffset = replaceLiteral(source,
         '    m_AttributeList        = "m_AttributeList",\n    m_Attributes           = "m_Attributes",',
@@ -6477,21 +6530,21 @@ end]])
         off.dwEntityList = FALLBACK_ENTITYLIST
         print(string.format("[changer] entlist pattern miss, using fallback RVA 0x%X", FALLBACK_ENTITYLIST))
     end]], [[    if not off.dwEntityList then
-        off.dwEntityList = rgnRuntimeOffsets.dwEntityList
+        off.dwEntityList = neoRuntimeOffsets.dwEntityList
         print("[changer] entity-list pattern miss; using current cs2-dumper offset")
     end]])
     source, okController = replaceLiteral(source, [[    if not off.dwLocalPlayerController then
         off.dwLocalPlayerController = FALLBACK_LOCALCTRL
         print(string.format("[changer] localctrl pattern miss, using fallback RVA 0x%X", FALLBACK_LOCALCTRL))
     end]], [[    if not off.dwLocalPlayerController then
-        off.dwLocalPlayerController = rgnRuntimeOffsets.dwLocalPlayerController
+        off.dwLocalPlayerController = neoRuntimeOffsets.dwLocalPlayerController
         print("[changer] local-controller pattern miss; using current cs2-dumper offset")
     end]])
     source, okNetwork = replaceLiteral(source, [[    off.dwNetworkGameClient     = sig_rva(eb, "engine2.dll", "48 89 3D ?? ?? ?? ?? FF 87", 7)
     off.dwNetworkGameClient_signOnState = sig_disp("engine2.dll", "44 8B 81 ?? ?? ?? ?? 48 8D 0D")]], [[    off.dwNetworkGameClient = sig_rva(eb, "engine2.dll", "48 89 3D ?? ?? ?? ?? FF 87", 7)
-        or rgnRuntimeOffsets.dwNetworkGameClient
+        or neoRuntimeOffsets.dwNetworkGameClient
     off.dwNetworkGameClient_signOnState = sig_disp("engine2.dll", "44 8B 81 ?? ?? ?? ?? 48 8D 0D")
-        or rgnRuntimeOffsets.dwNetworkGameClient_signOnState]])
+        or neoRuntimeOffsets.dwNetworkGameClient_signOnState]])
 
     -- The current client moved CEconEntity::OnDataChanged from vtable 110 to
     -- 111. Index 110 now returns immediately and cannot rebuild a paint.
@@ -6512,21 +6565,21 @@ end]])
     w_u8 (item + off.m_bInitialized, 1)
     w_u8 (item + off.m_bDisallowSOC, 0)
     w_u8 (item + off.m_bRestoreCustomMat, 1)
-end]], [[local rgn_item_alloc
+end]], [[local neo_item_alloc
 local function alloc_item_attributes(bytes)
-    if not rgn_item_alloc then
+    if not neo_item_alloc then
         pcall(function() ffi.cdef("void* GetModuleHandleA(const char*); void* GetProcAddress(void*, const char*);") end)
         local tier0
         pcall(function() tier0 = ffi.C.GetModuleHandleA("tier0.dll") end)
         if tier0 then
             local proc
             pcall(function() proc = ffi.C.GetProcAddress(tier0, "MemAlloc_AllocFunc") end)
-            if proc then rgn_item_alloc = ffi.cast("void*(*)(size_t)", proc) end
+            if proc then neo_item_alloc = ffi.cast("void*(*)(size_t)", proc) end
         end
     end
-    if not rgn_item_alloc then return nil end
+    if not neo_item_alloc then return nil end
     local raw
-    pcall(function() raw = rgn_item_alloc(bytes) end)
+    pcall(function() raw = neo_item_alloc(bytes) end)
     local ptr
     pcall(function() ptr = tonumber(ffi.cast("uintptr_t", raw)) end)
     return valid(ptr) and ptr or nil
@@ -6662,15 +6715,15 @@ end]])
     -- frames after the pawn becomes alive. Repeat only the complete spawn
     -- initialization, with a short bounded schedule, so the knife cannot keep
     -- a stale/default viewmodel after a rapid death/respawn cycle.
-    if (state.rgnRespawnRetries or 0) > 0 and retryNow >= (state.rgnRespawnNext or 0) then
-        state.rgnRespawnRetries = state.rgnRespawnRetries - 1
-        state.rgnRespawnNext = retryNow + 0.25
+    if (state.neoRespawnRetries or 0) > 0 and retryNow >= (state.neoRespawnNext or 0) then
+        state.neoRespawnRetries = state.neoRespawnRetries - 1
+        state.neoRespawnNext = retryNow + 0.25
         state.applied = {}
         applied = state.applied
     end
-    if (state.rgnMaterialRetries or 0) > 0 and retryNow >= (state.rgnMaterialNext or 0) then
-        state.rgnMaterialRetries = state.rgnMaterialRetries - 1
-        state.rgnMaterialNext = retryNow + 0.35
+    if (state.neoMaterialRetries or 0) > 0 and retryNow >= (state.neoMaterialNext or 0) then
+        state.neoMaterialRetries = state.neoMaterialRetries - 1
+        state.neoMaterialNext = retryNow + 0.35
         state.applied = {}
         applied = state.applied
     end
@@ -6708,7 +6761,7 @@ end]])
     end]], [[    local lp = get_live_local()
     if not lp or not in_game() then
         if next(state.applied) then state.applied = {} end
-        state.rgnWasAlive = false
+        state.neoWasAlive = false
         return
     end]])
 
@@ -6744,23 +6797,23 @@ end]])
     if not valid(r_ptr(pawn + off.m_pGameSceneNode)) then return end
 
     local currentTeam = r_u8(pawn + off.m_iTeamNum)
-    local freshLife = state.rgnWasAlive ~= true
+    local freshLife = state.neoWasAlive ~= true
     if freshLife or state.lastPawnHandle ~= myHandle or state.lastTeam ~= currentTeam then
         state.lastPawnHandle = myHandle
         state.lastTeam = currentTeam
-        state.rgnWasAlive = true
+        state.neoWasAlive = true
         state.applied = {}
         glove_key, glove_apply = nil, 6
         local spawnNow = 0
         pcall(function() spawnNow = globals.RealTime() end)
-        state.rgnRespawnRetries = 4
-        state.rgnRespawnNext = spawnNow + 0.15
+        state.neoRespawnRetries = 4
+        state.neoRespawnNext = spawnNow + 0.15
     end]])
 
     -- Keep the broad custom-character subsystem disabled. The replacement
     -- below applies only a user-selected official CS2 agent to the local pawn.
     source, okNoModelTick = replaceLiteral(source, [[    apply_all_model_assignments()
-    apply_local_model(pawn, lp)]], [[    apply_rgn_agent(pawn, lp)]])
+    apply_local_model(pawn, lp)]], [[    apply_neo_agent(pawn, lp)]])
     source, okNoModelResolve = replaceLiteral(source,
         'pcall(resolve_model_fns)',
         'pcall(resolve_model_fns) -- official-agent precache support')
@@ -6780,30 +6833,30 @@ end]])
         state.appliedLocalModel = "OFF"
     end
 end]], [[local function apply_local_model(pawn, lp)
-    -- Disabled: arbitrary character models belong to rgnSKINS.
+    -- Disabled: arbitrary character models belong to neoSKINS.
 end
 
-local function apply_rgn_agent(pawn, lp)
-    local multi = rawget(_G, "RGN_MULTITOOL_STATE")
+local function apply_neo_agent(pawn, lp)
+    local multi = rawget(_G, "mahanmoi_STATE")
     if multi and multi.characterMode ~= "agents" then return end
-    if not state.opts.rgn_agent_enabled then
-        state.modelApplied["rgn-agent"] = nil
+    if not state.opts.neo_agent_enabled then
+        state.modelApplied["neo-agent"] = nil
         return
     end
     if not lp or not valid(pawn) or not in_game() then return end
     local team = r_u8(pawn + off.m_iTeamNum)
-    local path = team == 3 and state.opts.rgn_agent_ct or team == 2 and state.opts.rgn_agent_t or nil
+    local path = team == 3 and state.opts.neo_agent_ct or team == 2 and state.opts.neo_agent_t or nil
     if type(path) ~= "string" or path == "" or not path:find("^agents/models/") or not path:find("%.vmdl$") then
         return
     end
-    local info = { pawn = lp, raw = pawn, key = "rgn-agent", is_local = false, idx = 0 }
+    local info = { pawn = lp, raw = pawn, key = "neo-agent", is_local = false, idx = 0 }
     pcall(function() info.idx = lp:GetIndex() end)
     apply_path_to_player(info, path)
 end]])
     source, okNoModelDiagnostic = replaceLiteral(source, [[local ok_root, root_str = pcall(models_root)
 print(string.format("[changer] precache: fn=%s irs=%s cbuf=%s root=%s",
     fnptr.precache and "ok" or "NIL", g_IRS and "ok" or "NIL",
-    fnptr.cbuf_insert and "ok" or "NIL", tostring(ok_root and root_str or "ERR")))]], [[print("[rgnWEAPONS engine] character filesystem/model diagnostics disabled")]])
+    fnptr.cbuf_insert and "ok" or "NIL", tostring(ok_root and root_str or "ERR")))]], [[print("[neoWEAPONS engine] character filesystem/model diagnostics disabled")]])
 
     -- Preview applies the mesh before regenerate_weapon_skins; the global
     -- rebuild then restores the stock mask on normal weapons. Make the mesh
@@ -6879,8 +6932,8 @@ end]])
     Config.save()
 end]], [[local function commit()
     state.applied = {}
-    state.rgnMaterialRetries = 4
-    state.rgnMaterialNext = 0
+    state.neoMaterialRetries = 4
+    state.neoMaterialNext = 0
     Config.save()
 end]])
     okMaterialRetry = okMaterialRetry and okRetryCommit
@@ -7060,43 +7113,43 @@ end]])
         return
     end]], [[    if not pawn_alive(pawn) then
         if next(state.applied) then state.applied = {} end
-        state.rgnWasAlive = false
-        state.rgnRespawnRetries = 0
+        state.neoWasAlive = false
+        state.neoRespawnRetries = 0
         glove_apply = 0
         return
     end]])
 
     source, okPlayableTeamGuard = replaceLiteral(source, [[    local currentTeam = r_u8(pawn + off.m_iTeamNum)
-    local freshLife = state.rgnWasAlive ~= true
+    local freshLife = state.neoWasAlive ~= true
     if freshLife or state.lastPawnHandle ~= myHandle or state.lastTeam ~= currentTeam then
         state.lastPawnHandle = myHandle
         state.lastTeam = currentTeam
-        state.rgnWasAlive = true
+        state.neoWasAlive = true
         state.applied = {}
         glove_key, glove_apply = nil, 6
         local spawnNow = 0
         pcall(function() spawnNow = globals.RealTime() end)
-        state.rgnRespawnRetries = 4
-        state.rgnRespawnNext = spawnNow + 0.15
+        state.neoRespawnRetries = 4
+        state.neoRespawnNext = spawnNow + 0.15
     end]], [[    local currentTeam = r_u8(pawn + off.m_iTeamNum)
     if currentTeam ~= 2 and currentTeam ~= 3 then
-        state.rgnWasAlive = false
+        state.neoWasAlive = false
         state.lastTeam = currentTeam
-        state.rgnRespawnRetries = 0
+        state.neoRespawnRetries = 0
         glove_apply = 0
         return
     end
-    local freshLife = state.rgnWasAlive ~= true
+    local freshLife = state.neoWasAlive ~= true
     if freshLife or state.lastPawnHandle ~= myHandle or state.lastTeam ~= currentTeam then
         state.lastPawnHandle = myHandle
         state.lastTeam = currentTeam
-        state.rgnWasAlive = true
+        state.neoWasAlive = true
         state.applied = {}
         local spawnNow = 0
         pcall(function() spawnNow = globals.RealTime() end)
         glove_key, glove_apply, glove_next, glove_repair_after = nil, 5, spawnNow + 0.10, spawnNow + 1.50
-        state.rgnRespawnRetries = 4
-        state.rgnRespawnNext = spawnNow + 0.15
+        state.neoRespawnRetries = 4
+        state.neoRespawnNext = spawnNow + 0.15
     end]])
 
     -- A full mesh notification must perform a real group transition. Writing
@@ -7245,16 +7298,18 @@ end]])
     -- Aimware may invoke CreateMove well over 100 times per second. Detect
     -- inventory/pawn changes at 20 Hz, which is still effectively immediate to
     -- the player, instead of traversing Source 2 entities on every command.
-    source, okEngineThrottle = replaceLiteral(source, [[callbacks.Register("CreateMove", "rgnMultitool_WeaponsEngine", function()
-    local okd, d = pcall(active_weapon_def); g_activeDef = okd and d or nil]], [[local rgnNextEngineTick = 0
-callbacks.Register("CreateMove", "rgnMultitool_WeaponsEngine", function()
+    source, okEngineThrottle = replaceLiteral(source, [[callbacks.Register("CreateMove", "mahanmoi_skin
+_WeaponsEngine", function()
+    local okd, d = pcall(active_weapon_def); g_activeDef = okd and d or nil]], [[local neoNextEngineTick = 0
+callbacks.Register("CreateMove", "mahanmoi_skin
+_WeaponsEngine", function()
     local tickNow = now_s()
-    if tickNow < rgnNextEngineTick then return end
-    rgnNextEngineTick = tickNow + 0.05
+    if tickNow < neoNextEngineTick then return end
+    neoNextEngineTick = tickNow + 0.05
     local okd, d = pcall(active_weapon_def); g_activeDef = okd and d or nil
-    if state.rgnLastActiveDef ~= g_activeDef then
-        state.rgnLastActiveDef = g_activeDef
-        state.rgnStickyNext = 0
+    if state.neoLastActiveDef ~= g_activeDef then
+        state.neoLastActiveDef = g_activeDef
+        state.neoStickyNext = 0
     end]])
 
     -- A full apply remains event-driven through state.applied. Steady-state
@@ -7263,8 +7318,8 @@ callbacks.Register("CreateMove", "rgnMultitool_WeaponsEngine", function()
     source, okSparseStickyState = replaceLiteral(source, [[    local applied = state.applied
     local retryNow = 0]], [[    local applied = state.applied
     local stickyClock = now_s()
-    local stickyPass = stickyClock >= (state.rgnStickyNext or 0)
-    if stickyPass then state.rgnStickyNext = stickyClock + 1.0 end
+    local stickyPass = stickyClock >= (state.neoStickyNext or 0)
+    if stickyPass then state.neoStickyNext = stickyClock + 1.0 end
     local retryNow = 0]])
 
     source, okSparseKnife = replaceLiteral(source, [[                            else
@@ -7299,94 +7354,97 @@ callbacks.Register("CreateMove", "rgnMultitool_WeaponsEngine", function()
     local lp = get_live_local()
     if not lp or not in_game() then
         if next(state.applied) then state.applied = {} end
-        state.rgnWasAlive = false
+        state.neoWasAlive = false
         return
-    end]], [[local rgnSessionInGame = false
-local function rgnResetSession(reason)
+    end]], [[local neoSessionInGame = false
+local function neoResetSession(reason)
     local resetNow = now_s()
     state.applied = {}
     state.modelApplied = {}
     state.appliedLocalModel = nil
-    state.rgnWasAlive = false
+    state.neoWasAlive = false
     state.lastPawnHandle = nil
     state.lastTeam = nil
-    state.rgnLastActiveDef = nil
-    state.rgnStickyNext = 0
-    state.rgnRespawnRetries = 6
-    state.rgnRespawnNext = resetNow + 0.15
-    state.rgnMaterialRetries = 5
-    state.rgnMaterialNext = resetNow + 0.20
+    state.neoLastActiveDef = nil
+    state.neoStickyNext = 0
+    state.neoRespawnRetries = 6
+    state.neoRespawnNext = resetNow + 0.15
+    state.neoMaterialRetries = 5
+    state.neoMaterialNext = resetNow + 0.20
     state.modelNextTry = {}
     state.modelNextGlobal = 0
     glove_key, glove_apply, glove_next, glove_repair_after = nil, 0, 0, 0
     g_activeDef = nil
     g_precached_paths = {}
     if reason ~= "round_start" then
-        print("[rgnWEAPONS engine] session cache reset: " .. tostring(reason or "transition"))
+        print("[neoWEAPONS engine] session cache reset: " .. tostring(reason or "transition"))
     end
 end
 
 local function run()
     local sessionOnline = in_game()
     if not sessionOnline then
-        if rgnSessionInGame then rgnResetSession("left game") end
-        rgnSessionInGame = false
+        if neoSessionInGame then neoResetSession("left game") end
+        neoSessionInGame = false
         if next(state.applied) then state.applied = {} end
-        state.rgnWasAlive = false
+        state.neoWasAlive = false
         return
     end
-    if not rgnSessionInGame then
-        rgnSessionInGame = true
-        rgnResetSession("entered game")
+    if not neoSessionInGame then
+        neoSessionInGame = true
+        neoResetSession("entered game")
     end
 
     local lp = get_live_local()
     if not lp then
         if next(state.applied) then state.applied = {} end
-        state.rgnWasAlive = false
+        state.neoWasAlive = false
         return
     end]])
 
-    source, okLocalSessionClock = replaceLiteral(source, [[local rgnNextEngineTick = 0
-callbacks.Register("CreateMove", "rgnMultitool_WeaponsEngine", function()
+    source, okLocalSessionClock = replaceLiteral(source, [[local neoNextEngineTick = 0
+callbacks.Register("CreateMove", "mahanmoi_skin
+_WeaponsEngine", function()
     local tickNow = now_s()
-    if tickNow < rgnNextEngineTick then return end]], [[local rgnNextEngineTick = 0
-local rgnLastEngineClock = 0
-callbacks.Register("CreateMove", "rgnMultitool_WeaponsEngine", function()
+    if tickNow < neoNextEngineTick then return end]], [[local neoNextEngineTick = 0
+local neoLastEngineClock = 0
+callbacks.Register("CreateMove", "mahanmoi_skin
+_WeaponsEngine", function()
     local tickNow = now_s()
-    if tickNow + 0.25 < rgnLastEngineClock then
-        rgnNextEngineTick = 0
-        rgnSessionInGame = false
-        rgnResetSession("clock rollback / map load")
+    if tickNow + 0.25 < neoLastEngineClock then
+        neoNextEngineTick = 0
+        neoSessionInGame = false
+        neoResetSession("clock rollback / map load")
     end
-    rgnLastEngineClock = tickNow
-    if tickNow < rgnNextEngineTick then return end]])
+    neoLastEngineClock = tickNow
+    if tickNow < neoNextEngineTick then return end]])
 
-    source, okLocalSessionEvents = replaceLiteral(source, [[local rgnNextEngineTick = 0
-local rgnLastEngineClock = 0]], [[pcall(function()
+    source, okLocalSessionEvents = replaceLiteral(source, [[local neoNextEngineTick = 0
+local neoLastEngineClock = 0]], [[pcall(function()
     if client and client.AllowListener then
         client.AllowListener("server_spawn")
         client.AllowListener("game_newmap")
         client.AllowListener("cs_game_disconnected")
         client.AllowListener("round_start")
     end
-    callbacks.Register("FireGameEvent", "rgnMultitool_WeaponsSessionEvents", function(event)
+    callbacks.Register("FireGameEvent", "mahanmoi_skin
+_WeaponsSessionEvents", function(event)
         local name
         pcall(function() name = event:GetName() end)
         if name == "server_spawn" or name == "game_newmap" or name == "cs_game_disconnected" or name == "round_start" then
-            if name ~= "round_start" then rgnSessionInGame = false end
-            rgnResetSession(name)
+            if name ~= "round_start" then neoSessionInGame = false end
+            neoResetSession(name)
         end
     end)
 end)
 
-local rgnNextEngineTick = 0
-local rgnLastEngineClock = 0]])
+local neoNextEngineTick = 0
+local neoLastEngineClock = 0]])
 
     if not (okLocalSessionRun and okLocalSessionClock and okLocalSessionEvents) then
         return nil, "local session lifecycle patch refused"
     end
-    source = source:gsub("%[changer%]", "[rgnWEAPONS engine]")
+    source = source:gsub("%[changer%]", "[neoWEAPONS engine]")
     if not (okConfig and okCallback and okRuntime and okNetworkedAttributesOffset
         and okAttributesInitializedOffset and okFullItemIDOffset
         and okEntity and okController and okNetwork and okExtraPaints
@@ -7460,7 +7518,7 @@ else
             writeFile(ENGINE_CACHE, rawSource)
         end
         if prepared then
-            local chunk, compileError = loadstring(prepared, "=rgnweapons_engine.lua")
+            local chunk, compileError = loadstring(prepared, "=neoweapons_engine.lua")
             if not chunk then
                 engineError = "engine compile error: " .. tostring(compileError)
             else
@@ -7497,8 +7555,10 @@ if C then
         if type(C.offsets[key]) ~= "number" then missing[#missing + 1] = key end
     end
     if #missing > 0 then
-        pcall(callbacks.Unregister, "CreateMove", "rgnMultitool_WeaponsEngine")
-        pcall(callbacks.Unregister, "FireGameEvent", "rgnMultitool_WeaponsSessionEvents")
+        pcall(callbacks.Unregister, "CreateMove", "mahanmoi_skin
+_WeaponsEngine")
+        pcall(callbacks.Unregister, "FireGameEvent", "mahanmoi_skin
+_WeaponsSessionEvents")
         engineError = "current offsets unavailable: " .. table.concat(missing, ", ")
         C = nil
     end
@@ -7525,7 +7585,7 @@ if #namesByKind.knife == 0 then namesByKind.knife[1] = "[ no knives available ]"
 if #namesByKind.glove == 0 then namesByKind.glove[1] = "[ no gloves available ]" end
 
 -- Official CS2 agent catalogue. These models ship with the game and do not
--- depend on the custom characters folder used by rgnSKINS.
+-- depend on the custom characters folder used by neoSKINS.
 local AGENTS = {
     { name = "1st Lieutenant Farlow | SWAT", team = "CT", def = 4712, path = "agents/models/ctm_swat/ctm_swat_variantf.vmdl" },
     { name = "3rd Commando Company | KSK", team = "CT", def = 5400, path = "agents/models/ctm_st6/ctm_st6_variantk.vmdl" },
@@ -7711,9 +7771,10 @@ autoConfigSection:Button("Show automatic save status", function()
     end
     M:Notify(tostring(configured) .. " configured items | saved after every change", "success")
 end)autoConfigSection:Button("Check for updates", function()
-    local updater = rawget(_G, "RGN_MULTITOOL_UPDATER")
+    local updater = rawget(_G, "mahanmoi_UPDATER")
     if type(updater) ~= "table" or type(updater.check) ~= "function" then
-        M:Notify("updates are available when rgnMultitool is launched with loader.lua", "info")
+        M:Notify("updates are available when mahanmoi_skin
+ is launched with loader.lua", "info")
         return
     end
     local callOk, success, message, state = pcall(updater.check)
@@ -7730,7 +7791,7 @@ end)
 
 configTab:Col()
 local profileSection = configTab:Section("Saved profiles")
-local PROFILE_NAMES_FILE = "rgnweapons_profile_names.txt"
+local PROFILE_NAMES_FILE = "neoweapons_profile_names.txt"
 local profileNames = { "Profile 1", "Profile 2", "Profile 3", "Profile 4", "Profile 5" }
 local namesRaw = readFile(PROFILE_NAMES_FILE)
 if type(namesRaw) == "string" then
@@ -7745,7 +7806,7 @@ local function saveProfileNames()
     for index = 1, 5 do lines[index] = tostring(index) .. " " .. profileNames[index] end
     return writeFile(PROFILE_NAMES_FILE, table.concat(lines, "\n"))
 end
-local function profilePath(slot) return "rgnweapons_profile_" .. tostring(slot) .. ".txt" end
+local function profilePath(slot) return "neoweapons_profile_" .. tostring(slot) .. ".txt" end
 
 local profileSlot = profileSection:Combo("Profile slot", { "Slot 1", "Slot 2", "Slot 3", "Slot 4", "Slot 5" }, 1)
 local profileName = profileSection:Input("Profile name", profileNames[1], "example: main setup")
@@ -7800,13 +7861,13 @@ local agentWidget = agentListSection.ws[#agentListSection.ws]
 
 agentsTab:Col()
 local agentControlSection = agentsTab:Section("Local operator")
-local agentEnabled = agentControlSection:Checkbox("Enable agent changer", savedBool("rgn_agent_enabled", false))
-RGN_MULTI.setAgentEnabled = function(enabled)
+local agentEnabled = agentControlSection:Checkbox("Enable agent changer", savedBool("neo_agent_enabled", false))
+neo_MULTI.setAgentEnabled = function(enabled)
     enabled = enabled and true or false
     agentEnabled:Set(enabled)
-    if C then C.setOpt("rgn_agent_enabled", enabled) end
+    if C then C.setOpt("neo_agent_enabled", enabled) end
 end
-if agentEnabled:Get() then RGN_MULTI.activateAgents("saved agent configuration") end
+if agentEnabled:Get() then neo_MULTI.activateAgents("saved agent configuration") end
 
 local function agentTeamKey()
     return (agentTeam:Get() or 1) == 1 and "CT" or "T"
@@ -7821,26 +7882,26 @@ agentControlSection:Button("Apply selected agent", function()
     if not C then M:Notify(engineError or "weapon engine unavailable", "error"); return end
     local agent = selectedAgent()
     if not agent then M:Notify("select an agent first", "error"); return end
-    C.setOpt(agent.team == "CT" and "rgn_agent_ct" or "rgn_agent_t", agent.path)
-    C.setOpt("rgn_agent_enabled", true)
+    C.setOpt(agent.team == "CT" and "neo_agent_ct" or "neo_agent_t", agent.path)
+    C.setOpt("neo_agent_enabled", true)
     agentEnabled:Set(true)
-    RGN_MULTI.activateAgents("official agent selected")
+    neo_MULTI.activateAgents("official agent selected")
     M:Notify(agent.team .. " agent saved: " .. agent.name, "success")
 end)
 
 agentControlSection:Button("Turn agent changer OFF", function()
-    if C then C.setOpt("rgn_agent_enabled", false) end
+    if C then C.setOpt("neo_agent_enabled", false) end
     agentEnabled:Set(false)
-    RGN_MULTI.deactivateAgents("official agents disabled")
+    neo_MULTI.deactivateAgents("official agents disabled")
     M:Notify("agents off; enable Skins Custom if you want a custom character", "info")
 end)
 
 local agentInfoSection = agentsTab:Section("Status")
 agentInfoSection:Button("Show saved agents", function()
     if not C then M:Notify(engineError or "weapon engine unavailable", "error"); return end
-    local ct, tt = tostring(C.getOpt("rgn_agent_ct") or "not selected"), tostring(C.getOpt("rgn_agent_t") or "not selected")
-    print("[rgnWEAPONS] CT agent: " .. ct)
-    print("[rgnWEAPONS] T agent: " .. tt)
+    local ct, tt = tostring(C.getOpt("neo_agent_ct") or "not selected"), tostring(C.getOpt("neo_agent_t") or "not selected")
+    print("[neoWEAPONS] CT agent: " .. ct)
+    print("[neoWEAPONS] T agent: " .. tt)
     M:Notify("saved CT/T agent paths printed in console", "info")
 end)
 
@@ -7851,7 +7912,7 @@ local function syncAgentList()
     lastAgentTeam = selectedTeam
     local key = selectedTeam == 1 and "CT" or "T"
     local list, names = agentsByTeam[key], agentNamesByTeam[key]
-    local wanted = C and C.getOpt(key == "CT" and "rgn_agent_ct" or "rgn_agent_t") or nil
+    local wanted = C and C.getOpt(key == "CT" and "neo_agent_ct" or "neo_agent_t") or nil
     local index = 1
     for i, agent in ipairs(list) do if agent.path == wanted then index = i; break end end
     agentWidget.items, agentWidget.value, agentWidget.scroll = names, index, 0
@@ -7927,22 +7988,22 @@ M:OnFrame(function()
     local agentOn = agentEnabled:Get()
     if C and agentOn ~= lastAgentEnabled then
         lastAgentEnabled = agentOn
-        C.setOpt("rgn_agent_enabled", agentOn)
+        C.setOpt("neo_agent_enabled", agentOn)
         if agentOn then
-            RGN_MULTI.activateAgents("agent checkbox enabled")
+            neo_MULTI.activateAgents("agent checkbox enabled")
         else
-            RGN_MULTI.deactivateAgents("agent checkbox disabled")
+            neo_MULTI.deactivateAgents("agent checkbox disabled")
         end
     elseif C then
-        local configured = C.getOpt("rgn_agent_enabled")
+        local configured = C.getOpt("neo_agent_enabled")
         local configuredOn = configured == true or configured == 1 or configured == "1"
         if configuredOn ~= agentOn then
             agentEnabled:Set(configuredOn)
             lastAgentEnabled = configuredOn
             if configuredOn then
-                RGN_MULTI.activateAgents("agent profile loaded")
+                neo_MULTI.activateAgents("agent profile loaded")
             else
-                RGN_MULTI.deactivateAgents("agent profile loaded with agents off")
+                neo_MULTI.deactivateAgents("agent profile loaded with agents off")
             end
         end
     end
@@ -7950,26 +8011,30 @@ M:OnFrame(function()
 end)
 
 pcall(function()
-    callbacks.Register("Unload", "rgnMultitool_WeaponsUnload", function()
-        pcall(callbacks.Unregister, "CreateMove", "rgnMultitool_WeaponsEngine")
-        pcall(callbacks.Unregister, "FireGameEvent", "rgnMultitool_WeaponsSessionEvents")
+    callbacks.Register("Unload", "mahanmoi_skin
+_WeaponsUnload", function()
+        pcall(callbacks.Unregister, "CreateMove", "mahanmoi_skin
+_WeaponsEngine")
+        pcall(callbacks.Unregister, "FireGameEvent", "mahanmoi_skin
+_WeaponsSessionEvents")
 
     end)
 end)
 
 
-if not C then print("[rgn] WEAPONS: " .. tostring(engineError)) end
+if not C then print("[neo] WEAPONS: " .. tostring(engineError)) end
 end)
 
 loadModule("MOVEMENT", function()
 local M = M
 
--- rgnMultitool movement module. Movement is attached to the multitool's
+-- mahanmoi_skin
+ movement module. Movement is attached to the multitool's
 -- already-live Draw/CreateMove callbacks so Aimware cannot discard it as a
 -- second callback for the same event.
 local bitlib = rawget(_G, "bit")
 -- v2 starts with every feature disabled; choices are persisted after opt-in.
-local CONFIG_FILE = "rgnmovement_config_v2.txt"
+local CONFIG_FILE = "neomovement_config_v2.txt"
 local IN_DUCK = 4
 local FL_ONGROUND = 1
 local KEY_W, KEY_A, KEY_S, KEY_D = 0x57, 0x41, 0x53, 0x44
@@ -8012,7 +8077,7 @@ local function safe(label, fn, ...)
         local key = label .. ":" .. tostring(a)
         if not errors[key] then
             errors[key] = true
-            print("[rgnMovement] " .. label .. " error: " .. tostring(a))
+            print("[neoMovement] " .. label .. " error: " .. tostring(a))
         end
         return nil
     end
@@ -8241,7 +8306,7 @@ local function resetMovement(reason)
     traceSource = "not probed"
     clearTrail()
     if reason and reason ~= "player_spawn" then
-        print("[rgnMovement] state reset: " .. tostring(reason))
+        print("[neoMovement] state reset: " .. tostring(reason))
     end
 end
 
@@ -8567,7 +8632,7 @@ local function drawDebug()
     if not debugEnabled:Get() then return end
     if smallFont then draw.SetFont(smallFont) end
     local lines = {
-        string.format("rgnMovement | valid=%s speed=%.1f vz=%.1f", tostring(state.valid), state.speed, state.vz),
+        string.format("neoMovement | valid=%s speed=%.1f vz=%.1f", tostring(state.valid), state.speed, state.vz),
         string.format("move callback=%s age=%s", tostring(moveActiveEvent or moveRegistered or "none"), lastMovementAt and string.format("%.2fs", math.max(0, now() - lastMovementAt)) or "never"),
         string.format("ground=%s ladder=%s distance=%s", tostring(state.onGround), tostring(state.onLadder), state.groundDistance and string.format("%.1f", state.groundDistance) or "nil"),
         string.format("edge active=%s inject duck=%s", tostring(state.edgeActive), tostring(state.edgeDuck)),
@@ -8629,11 +8694,16 @@ statusSection:Button("Reset movement state", function()
 end)
 
 pcall(function()
-    callbacks.Unregister("PreMove", "rgnMultitool_MovementPreMove")
-    callbacks.Unregister("CreateMove", "rgnMultitool_MovementCreateMove")
-    callbacks.Unregister("Draw", "rgnMultitool_MovementDraw")
-    callbacks.Unregister("FireGameEvent", "rgnMultitool_MovementEvents")
-    callbacks.Unregister("Unload", "rgnMultitool_MovementUnload")
+    callbacks.Unregister("PreMove", "mahanmoi_skin
+_MovementPreMove")
+    callbacks.Unregister("CreateMove", "mahanmoi_skin
+_MovementCreateMove")
+    callbacks.Unregister("Draw", "mahanmoi_skin
+_MovementDraw")
+    callbacks.Unregister("FireGameEvent", "mahanmoi_skin
+_MovementEvents")
+    callbacks.Unregister("Unload", "mahanmoi_skin
+_MovementUnload")
 end)
 
 local function onMovementCommand(cmd)
@@ -8696,7 +8766,8 @@ pcall(function()
         client.AllowListener("game_newmap")
         client.AllowListener("cs_game_disconnected")
     end
-    callbacks.Register("FireGameEvent", "rgnMultitool_MovementEvents", function(event)
+    callbacks.Register("FireGameEvent", "mahanmoi_skin
+_MovementEvents", function(event)
         if type(M._movementCommandActive) == "function" and not M._movementCommandActive() then return end
         local name
         pcall(function() name = event:GetName() end)
@@ -8712,16 +8783,21 @@ pcall(function()
     end)
 end)
 
-callbacks.Register("Unload", "rgnMultitool_MovementUnload", function()
+callbacks.Register("Unload", "mahanmoi_skin
+_MovementUnload", function()
     saveSettings()
     M._movementCommandCallback = nil
     M._movementCommandActive = nil
     M._movementDrawCallback = nil
     M._movementDrawActive = nil
-    pcall(callbacks.Unregister, "PreMove", "rgnMultitool_MovementPreMove")
-    pcall(callbacks.Unregister, "CreateMove", "rgnMultitool_MovementCreateMove")
-    pcall(callbacks.Unregister, "Draw", "rgnMultitool_MovementDraw")
-    pcall(callbacks.Unregister, "FireGameEvent", "rgnMultitool_MovementEvents")
+    pcall(callbacks.Unregister, "PreMove", "mahanmoi_skin
+_MovementPreMove")
+    pcall(callbacks.Unregister, "CreateMove", "mahanmoi_skin
+_MovementCreateMove")
+    pcall(callbacks.Unregister, "Draw", "mahanmoi_skin
+_MovementDraw")
+    pcall(callbacks.Unregister, "FireGameEvent", "mahanmoi_skin
+_MovementEvents")
 end)
 
 end)
@@ -8732,7 +8808,7 @@ local M = M
 -- Compatible with femboytap's sound pack: place compiled .vsnd_c files in
 -- game/csgo/sounds or one of its subfolders. Discovery happens once at load
 -- and only when Refresh is pressed; no directory scan runs during gameplay.
-local CONFIG_FILE = "rgncustomsounds_config.txt"
+local CONFIG_FILE = "neocustomsounds_config.txt"
 local f = rawget(_G, "ffi")
 local config = {}
 local soundDir, soundNames, soundPaths = nil, {}, {}
@@ -8790,7 +8866,7 @@ if type(f) == "table" then
             uint32_t reserved0, reserved1;
             char filename[260];
             char alternate[14];
-        } RGN_SOUND_FIND_DATA;
+        } neo_SOUND_FIND_DATA;
     ]] end)
     pcall(function() f.cdef[[
         void* GetModuleHandleA(const char*);
@@ -8828,8 +8904,8 @@ local function deriveCsgoRoot(path)
 end
 
 local function resolveSoundDirectory()
-    if RGN_ASSET_FS.available then
-        local path, reason = RGN_ASSET_FS.resolve("sounds")
+    if neo_ASSET_FS.available then
+        local path, reason = neo_ASSET_FS.resolve("sounds")
         soundScanReason = reason
         return path
     end
@@ -8849,8 +8925,8 @@ local function resolveSoundDirectory()
 end
 
 local function ensureSoundDirectory()
-    if RGN_ASSET_FS.available then
-        local path, reason = RGN_ASSET_FS.ensureDirectory("sounds")
+    if neo_ASSET_FS.available then
+        local path, reason = neo_ASSET_FS.ensureDirectory("sounds")
         soundDir, soundScanReason = path, reason
         return soundDir ~= nil
     end
@@ -8875,7 +8951,7 @@ end
 
 local function scanSoundDirectory(absoluteDir, relativeDir, paths, depth)
     if depth > 6 then return end
-    local data = f.new("RGN_SOUND_FIND_DATA")
+    local data = f.new("neo_SOUND_FIND_DATA")
     local invalid = f.cast("void*", f.cast("intptr_t", -1))
     local handle = findFirstA(absoluteDir .. "\\*", data)
     if handle == nil or handle == invalid then return end
@@ -8899,9 +8975,9 @@ end
 
 local function scanSounds()
     local names, paths = {}, {}
-    if RGN_ASSET_FS.available then
+    if neo_ASSET_FS.available then
         local ok, files, _, folder, reason = pcall(
-            RGN_ASSET_FS.scan,
+            neo_ASSET_FS.scan,
             "sounds",
             ".vsnd_c",
             12,
@@ -8909,7 +8985,7 @@ local function scanSounds()
         )
         if not ok then
             soundScanReason = tostring(files)
-            print("[rgnSounds] scan failed: " .. soundScanReason)
+            print("[neoSounds] scan failed: " .. soundScanReason)
             return { "[ custom sounds unavailable; check console ]" }, paths
         end
         soundDir, soundScanReason = folder or soundDir, reason
@@ -8928,7 +9004,7 @@ local function scanSounds()
         return names, paths
     end
 
-    soundScanReason = RGN_ASSET_FS.reason
+    soundScanReason = neo_ASSET_FS.reason
     if not ensureSoundDirectory() or not findFirstA or not findNextA or not findClose or type(f) ~= "table" then
         return { "[ csgo\\sounds unavailable ]" }, paths
     end
@@ -9018,25 +9094,25 @@ local function refreshSounds()
     killCombo:Set(soundIndex(oldKill))
     observedConfig = currentSnapshot()
     saveConfig()
-    print(string.format("[rgnSounds] refreshed: %d .vsnd_c files in %s", #soundPaths, tostring(soundDir or "unresolved")))
+    print(string.format("[neoSounds] refreshed: %d .vsnd_c files in %s", #soundPaths, tostring(soundDir or "unresolved")))
     if #soundPaths == 0 then
-        print("[rgnSounds] scan reason: " .. tostring(soundScanReason or "no compiled files"))
-        print("[rgnSounds] expected folder: " .. tostring(soundDir or "game\\csgo\\sounds"))
+        print("[neoSounds] scan reason: " .. tostring(soundScanReason or "no compiled files"))
+        print("[neoSounds] expected folder: " .. tostring(soundDir or "game\\csgo\\sounds"))
     end
 end
 
 librarySection:Button("Preview hit sound", function()
-    if not playSound(selectedSound(hitCombo), hitVolume:Get()) then print("[rgnSounds] select a valid hit sound") end
+    if not playSound(selectedSound(hitCombo), hitVolume:Get()) then print("[neoSounds] select a valid hit sound") end
 end)
 librarySection:Button("Preview kill sound", function()
-    if not playSound(selectedSound(killCombo), killVolume:Get()) then print("[rgnSounds] select a valid kill sound") end
+    if not playSound(selectedSound(killCombo), killVolume:Get()) then print("[neoSounds] select a valid kill sound") end
 end)
 librarySection:Button("Refresh csgo/sounds", refreshSounds)
 librarySection:Button("Open sounds folder", function()
     if ensureSoundDirectory() and winExec then
         pcall(function() winExec('explorer.exe "' .. soundDir .. '"', 5) end)
     else
-        print("[rgnSounds] csgo/sounds could not be resolved")
+        print("[neoSounds] csgo/sounds could not be resolved")
     end
 end)
 librarySection:Custom(44, function(ui)
@@ -9247,7 +9323,7 @@ local M = M
 
 -- Clean event-driven killsay. It deliberately avoids the obfuscated upstream
 -- payload and sends at most one sanitized public-chat message per local kill.
-local CONFIG_FILE = "rgnkillsay_config.txt"
+local CONFIG_FILE = "neokillsay_config.txt"
 local PACK_NAMES = {
     "English / Competitive", "English / Savage", "Argentina / Cancha", "Short",
     "Portuguese BR", "Spanish LATAM", "French", "German", "Italian", "Polish",
@@ -9545,7 +9621,7 @@ local lastDeathSignature, lastDeathAt = nil, -100
 local eventKillCredits = 0
 local lastTestAt = -100
 local awaitingChat, chatConfirmed, chatTimeouts = nil, 0, 0
-local RUNTIME_FILE = "rgnkillsay_runtime.txt"
+local RUNTIME_FILE = "neokillsay_runtime.txt"
 local callbackEvents = 0
 local runtimeHistory = {}
 local armed = false
@@ -9737,7 +9813,7 @@ end
 statusSection:Button("Preview next message", function()
     local template, selected = chooseTemplate(false)
     local message = formatMessage(template, "Player", selected)
-    print("[rgnKillsay] preview: " .. message)
+    print("[neoKillsay] preview: " .. message)
     M:Notify(message, "info")
 end)
 statusSection:Button("Send test message to chat", function()
@@ -9749,17 +9825,17 @@ statusSection:Button("Send test message to chat", function()
     local ok, method = sendPublic(message)
     if ok then
         lastMessage, sendMethod, status = message, method, "test sent"
-        print("[rgnKillsay] test sent via " .. method .. ": " .. message)
+        print("[neoKillsay] test sent via " .. method .. ": " .. message)
         M:Notify("test sent via " .. method, "success")
     else
         status = "test failed"
-        print("[rgnKillsay] test send error: " .. tostring(method))
+        print("[neoKillsay] test send error: " .. tostring(method))
         M:Notify("chat send failed; check console", "error")
     end
 end)
 statusSection:Button("Show killsay status", function()
     M:Notify(string.format("%s | deaths=%d local=%d queued=%d | %s", status, deathEvents, localKills, #pending, sendMethod), "info")
-    print(string.format("[rgnKillsay] pack=%s | victim=%s | last=%s", PACK_NAMES[pack:Get()] or "?", lastVictim, lastMessage))
+    print(string.format("[neoKillsay] pack=%s | victim=%s | last=%s", PACK_NAMES[pack:Get()] or "?", lastVictim, lastMessage))
 end)
 statusSection:Button("Clear pending messages", function()
     pending = {}
@@ -10023,10 +10099,10 @@ M._killsayDrawCallback = function()
         if ok then
             lastSentAt, lastVictim, lastMessage, sendMethod, status = t, item.victim or lastVictim, item.text, method, "sent"
             awaitingChat = { text = item.text, at = t }
-            print("[rgnKillsay] sent via " .. method .. ": " .. item.text)
+            print("[neoKillsay] sent via " .. method .. ": " .. item.text)
         else
             status = "send failed"
-            print("[rgnKillsay] send error: " .. tostring(method))
+            print("[neoKillsay] send error: " .. tostring(method))
             writeRuntime("queued message send failed", {
                 victim = item.victim,
                 message = item.text,
@@ -10337,9 +10413,11 @@ M._killTimerDrawCallback = runtime
 M._killTimerDrawActive = function()
     return enabled:Get() == true or alpha > 0.01
 end
-callbacks.Register("Unload", "rgnMultitool_KillTimerUnload", function()
+callbacks.Register("Unload", "mahanmoi_skin
+_KillTimerUnload", function()
     armed = false
-    pcall(callbacks.Unregister, "Draw", "rgnMultitool_KillTimerDraw")
+    pcall(callbacks.Unregister, "Draw", "mahanmoi_skin
+_KillTimerDraw")
     if M._killTimerDrawCallback == runtime then M._killTimerDrawCallback = nil end
     M._killTimerDrawActive = nil
     M._killTimerSignalActive = nil
@@ -10353,8 +10431,8 @@ local M = M
 -- scoreboard-visible equivalent is a prefix composed with the user name.
 -- This module follows the working engine2.dll name-ConVar route from the
 -- Aimware reference, but validates every signature and pointer before use.
-local CONFIG_FILE = "rgnidentity_config.txt"
-local RUNTIME_FILE = "rgnidentity_runtime.txt"
+local CONFIG_FILE = "neoidentity_config.txt"
+local RUNTIME_FILE = "neoidentity_runtime.txt"
 local ENGINE_DLL = "engine2.dll"
 local CVAR_PATTERN = "48 8B 0D ?? ?? ?? ?? 48 8B 16 48 89 7C 24 ?? 4C 89 4C 24 ??"
 local RESOLVE_PATTERN = "48 8B D3 E8 ?? ?? ?? ?? 48 8B 44 24"
@@ -10413,13 +10491,14 @@ local tab = M:Tab("IDENTITY")
 tab:Row()
 local nameSection = tab:Section("Custom name")
 local nameEnabled = nameSection:Checkbox("Enable custom name", cfgBool("name_enabled", false))
-local nameText = nameSection:Input("Name text", config.name_text or "rgnMultitool", "custom player name...")
+local nameText = nameSection:Input("Name text", config.name_text or "mahanmoi_skin
+", "custom player name...")
 local nameAnimated = nameSection:Checkbox("Animate custom name", cfgBool("name_animated", false))
 local nameSpeed = nameSection:Slider("Name animation speed", cfgNumber("name_speed", 0.60, 0.35, 2.0), 0.35, 2.0, 0.05, "%.2fs")
 
 local clanSection = tab:Section("Clan tag / prefix")
 local clanEnabled = clanSection:Checkbox("Enable clan prefix", cfgBool("clan_enabled", false))
-local clanText = clanSection:Input("Clan text", config.clan_text or "RGN", "prefix shown before name...")
+local clanText = clanSection:Input("Clan text", config.clan_text or "neo", "prefix shown before name...")
 local clanAnimated = clanSection:Checkbox("Animate clan text", cfgBool("clan_animated", false))
 local separatorBar = clanSection:Checkbox("Use middle bar |", cfgBool("separator_bar", true))
 local clanSpeed = clanSection:Slider("Clan animation speed", cfgNumber("clan_speed", 0.60, 0.35, 2.0), 0.35, 2.0, 0.05, "%.2fs")
@@ -10430,10 +10509,10 @@ local statusSection = tab:Section("Status")
 
 local f = rawget(_G, "ffi")
 local bitlib = rawget(_G, "bit") or rawget(_G, "bit32")
-local sharedState = rawget(_G, "RGN_IDENTITY_SHARED_STATE")
+local sharedState = rawget(_G, "neo_IDENTITY_SHARED_STATE")
 if type(sharedState) ~= "table" then
     sharedState = {}
-    rawset(_G, "RGN_IDENTITY_SHARED_STATE", sharedState)
+    rawset(_G, "neo_IDENTITY_SHARED_STATE", sharedState)
 end
 local flagsPointer, originalFlags = sharedState.flagsPointer, sharedState.originalFlags
 local patchReady = flagsPointer ~= nil and originalFlags ~= nil
@@ -10721,11 +10800,11 @@ M._identityHandles = {
 }
 M._identityComposeForTest = composeIdentity
 
-local generation = (tonumber(rawget(_G, "RGN_IDENTITY_GENERATION")) or 0) + 1
-rawset(_G, "RGN_IDENTITY_GENERATION", generation)
+local generation = (tonumber(rawget(_G, "neo_IDENTITY_GENERATION")) or 0) + 1
+rawset(_G, "neo_IDENTITY_GENERATION", generation)
 
 local function identityDraw()
-    if rawget(_G, "RGN_IDENTITY_GENERATION") ~= generation then return end
+    if rawget(_G, "neo_IDENTITY_GENERATION") ~= generation then return end
     local wantsIdentity = nameEnabled:Get() or clanEnabled:Get()
     -- The stable callback kept polling the server/map clock while identity was
     -- completely idle. If we do not own a changed name there is nothing to
@@ -10768,18 +10847,19 @@ M._identityDrawCallback = identityDraw
 callbacks.Register("Draw", identityDraw)
 
 callbacks.Register("Unload", function()
-    if rawget(_G, "RGN_IDENTITY_GENERATION") ~= generation then return end
+    if rawget(_G, "neo_IDENTITY_GENERATION") ~= generation then return end
     pcall(saveConfig)
     if changed and originalName ~= "" then pcall(function() writeName(originalName, true) end) end
     restoreFlags()
-    rawset(_G, "RGN_IDENTITY_GENERATION", generation + 1)
+    rawset(_G, "neo_IDENTITY_GENERATION", generation + 1)
 end)
 
 writeRuntime("module loaded")
 end)
 
 loadModule("VOTES", function()
--- rgnMultitool vote revealer.
+-- mahanmoi_skin
+ vote revealer.
 -- Uses documented game events and ordinary entity APIs. The only FFI call is
 -- the current local HUD-chat printer; Steam avatar vtables remain excluded.
 -- The service is always enabled and intentionally has no tab. Event/session
@@ -10805,7 +10885,7 @@ local eventCount, status = 0, "ready"
 local callbackEvents = 0
 local nextListenerRefresh, nextSessionPoll, nextLogicTick = 0, 0, 0
 local lastSessionKey
-local RUNTIME_FILE = "rgnvotes_runtime.txt"
+local RUNTIME_FILE = "neovotes_runtime.txt"
 local runtimeHistory = {}
 local localChatPrint, localChatStatus
 local localPrintCount = 0
@@ -11511,7 +11591,7 @@ local function sendQueued(t)
         -- Reset immediately after the marker so the vote description stays readable.
         local teamColor = teamName == "T" and string.char(2) or (teamName == "CT" and string.char(11) or reset)
         local colorMarker = teamName == "T" and "(T)" or (teamName == "CT" and "(CT)" or "")
-        local formatted = prefixColor .. "[rgnVotes] " .. reset
+        local formatted = prefixColor .. "[neoVotes] " .. reset
         if colorMarker ~= "" then formatted = formatted .. teamColor .. colorMarker .. reset .. " " end
         formatted = formatted .. message
         M._voteLastFormattedChat = formatted
@@ -11521,7 +11601,7 @@ local function sendQueued(t)
         if type(localChatPrint) == "function" then
             ok = localChatPrint(formatted) == true
         end
-        if not ok then print("[rgnVotes/local] " .. plainMarker .. message) end
+        if not ok then print("[neoVotes/local] " .. plainMarker .. message) end
         localPrintCount = localPrintCount + 1
         M._voteLocalPrintCount = localPrintCount
         count = count + 1
@@ -11566,14 +11646,18 @@ M._voteLogicCallback = function()
     voteLogicTick(t)
 end
 
-pcall(function() callbacks.Unregister("Draw", "rgnMultitool_VoteDraw") end)
-pcall(function() callbacks.Unregister("CreateMove", "rgnMultitool_VoteLogic") end)
-pcall(function() callbacks.Unregister("FireGameEvent", "rgnMultitool_VoteEvents") end)
-local runtimeGeneration = (tonumber(rawget(_G, "RGN_VOTE_RUNTIME_GENERATION")) or 0) + 1
-rawset(_G, "RGN_VOTE_RUNTIME_GENERATION", runtimeGeneration)
+pcall(function() callbacks.Unregister("Draw", "mahanmoi_skin
+_VoteDraw") end)
+pcall(function() callbacks.Unregister("CreateMove", "mahanmoi_skin
+_VoteLogic") end)
+pcall(function() callbacks.Unregister("FireGameEvent", "mahanmoi_skin
+_VoteEvents") end)
+local runtimeGeneration = (tonumber(rawget(_G, "neo_VOTE_RUNTIME_GENERATION")) or 0) + 1
+rawset(_G, "neo_VOTE_RUNTIME_GENERATION", runtimeGeneration)
 local logicBusy = false
-callbacks.Register("CreateMove", "rgnMultitool_VoteLogic", function()
-    if rawget(_G, "RGN_VOTE_RUNTIME_GENERATION") ~= runtimeGeneration or logicBusy then return end
+callbacks.Register("CreateMove", "mahanmoi_skin
+_VoteLogic", function()
+    if rawget(_G, "neo_VOTE_RUNTIME_GENERATION") ~= runtimeGeneration or logicBusy then return end
     -- Vote/session work runs at 20 Hz.
     local t = clock()
     if t < nextLogicTick then return end
@@ -11589,9 +11673,10 @@ initLocalChat()
 writeRuntime("module loaded", { session = lastSessionKey, chat = localChatStatus })
 
 callbacks.Register("Unload", function()
-    if rawget(_G, "RGN_VOTE_RUNTIME_GENERATION") ~= runtimeGeneration then return end
-    rawset(_G, "RGN_VOTE_RUNTIME_GENERATION", runtimeGeneration + 1)
-    pcall(callbacks.Unregister, "CreateMove", "rgnMultitool_VoteLogic")
+    if rawget(_G, "neo_VOTE_RUNTIME_GENERATION") ~= runtimeGeneration then return end
+    rawset(_G, "neo_VOTE_RUNTIME_GENERATION", runtimeGeneration + 1)
+    pcall(callbacks.Unregister, "CreateMove", "mahanmoi_skin
+_VoteLogic")
     M._voteLogicCallback = nil
     M._voteLogicAliveAt = nil
     M._voteLogicError = nil
@@ -11606,7 +11691,7 @@ loadModule("REGION", function()
 local tab = M:Tab("REGION")
 tab:Row()
 
-local CONFIG_FILE = "rgnregion_config.txt"
+local CONFIG_FILE = "neoregion_config.txt"
 local SDR_ENDPOINT = "https://api.steampowered.com/ISteamApps/GetSDRConfig/v1/?appid=730"
 local fallbackRegions = {
     { "ams", "Amsterdam (Netherlands)" },
@@ -12047,9 +12132,12 @@ statusSection:Custom(62, function(ui)
     ui.label(total and ("Samples: " .. total .. " (direct " .. direct .. " / relay " .. relayed .. ")") or relayProbe.detail, ui.T.textdim)
 end)
 
-pcall(function() callbacks.Unregister("Draw", "rgnMultitool_RegionDraw") end)
-pcall(function() callbacks.Unregister("Unload", "rgnMultitool_RegionUnload") end)
-callbacks.Register("Draw", "rgnMultitool_RegionDraw", function()
+pcall(function() callbacks.Unregister("Draw", "mahanmoi_skin
+_RegionDraw") end)
+pcall(function() callbacks.Unregister("Unload", "mahanmoi_skin
+_RegionUnload") end)
+callbacks.Register("Draw", "mahanmoi_skin
+_RegionDraw", function()
     local t = 0
     pcall(function() t = globals.RealTime() end)
     if t < nextPoll then return end
@@ -12068,10 +12156,12 @@ end)
 
 nextProbe = 0
 
-callbacks.Register("Unload", "rgnMultitool_RegionUnload", function()
+callbacks.Register("Unload", "mahanmoi_skin
+_RegionUnload", function()
     saveSettings()
     if applied then restoreAutomatic(false) end
-    pcall(callbacks.Unregister, "Draw", "rgnMultitool_RegionDraw")
+    pcall(callbacks.Unregister, "Draw", "mahanmoi_skin
+_RegionDraw")
 end)
 
 end)
@@ -12546,7 +12636,8 @@ end
 M._whitelistDrawCallback = drawWhitelistHud
 M._whitelistDrawActive = function() return whitelistEnabled:Get() == true end
 
-callbacks.Register("DrawESP", "rgnMultitool_WhitelistESP", function(esp)
+callbacks.Register("DrawESP", "mahanmoi_skin
+_WhitelistESP", function(esp)
     if whitelistEnabled:Get() ~= true or not esp then return end
     local entity = safeCall(function() return esp:GetEntity() end)
     local pawn, team = localPawnAndTeam()
@@ -12563,11 +12654,15 @@ callbacks.Register("DrawESP", "rgnMultitool_WhitelistESP", function(esp)
     pcall(function() esp:AddTextTop(protected and "WHITELISTED" or "TARGET") end)
 end)
 
-callbacks.Register("Unload", "rgnMultitool_WhitelistUnload", function()
+callbacks.Register("Unload", "mahanmoi_skin
+_WhitelistUnload", function()
     cleanupImmortalStates()
-    pcall(callbacks.Unregister, "Draw", "rgnMultitool_WhitelistRefresh")
-    pcall(callbacks.Unregister, "Draw", "rgnMultitool_WhitelistPanel")
-    pcall(callbacks.Unregister, "DrawESP", "rgnMultitool_WhitelistESP")
+    pcall(callbacks.Unregister, "Draw", "mahanmoi_skin
+_WhitelistRefresh")
+    pcall(callbacks.Unregister, "Draw", "mahanmoi_skin
+_WhitelistPanel")
+    pcall(callbacks.Unregister, "DrawESP", "mahanmoi_skin
+_WhitelistESP")
     if M._whitelistCommandCallback == whitelistCommand then M._whitelistCommandCallback = nil end
     if M._whitelistDrawCallback == drawWhitelistHud then M._whitelistDrawCallback = nil end
     if M._whitelistRuntimeCallback == whitelistRuntime then M._whitelistRuntimeCallback = nil end
@@ -12579,9 +12674,11 @@ end)
 
 -- Aimware's anonymous event bridge is tokened so reloads cannot double-dispatch.
 do
-    local callbackId = "rgnMultitool_GameEvents"
-    local unloadId = "rgnMultitool_GameEventsUnload"
-    local bridgeKey = "RGN_MULTITOOL_EVENT_BRIDGE_V1"
+    local callbackId = "mahanmoi_skin
+_GameEvents"
+    local unloadId = "mahanmoi_skin
+_GameEventsUnload"
+    local bridgeKey = "mahanmoi_EVENT_BRIDGE_V1"
     local dispatchBusy = false
     local handlers = {
         { field = "_killsayEventCallback", active = "_killsayEventActive", label = "Killsay" },
@@ -12600,7 +12697,8 @@ do
                 and (type(active) ~= "function" or active()) then
                 local ok, err = pcall(handler, event)
                 if not ok then
-                    print(string.format("[rgnMultitool] %s event error: %s", entry.label, tostring(err)))
+                    print(string.format("[mahanmoi_skin
+] %s event error: %s", entry.label, tostring(err)))
                 end
             end
         end
@@ -12628,13 +12726,15 @@ do
             local ok, err = pcall(dispatcher, event)
             if not ok then
                 current.lastError = tostring(err)
-                print("[rgnMultitool] event bridge error: " .. tostring(err))
+                print("[mahanmoi_skin
+] event bridge error: " .. tostring(err))
             end
         end)
     end)
     bridge.registered = registered == true
     if not registered then
-        print("[rgnMultitool] stable event bridge failed: " .. tostring(registerError))
+        print("[mahanmoi_skin
+] stable event bridge failed: " .. tostring(registerError))
     end
 
     callbacks.Register("Unload", unloadId, function()
@@ -12666,4 +12766,4 @@ do
 end
 
 M:Build({ w = 940, h = 560, autoH = false, resize = true })
-print("[rgn] ready " .. RGN_MULTITOOL_VERSION)
+print("[neo] ready " .. mahanmoi_VERSION)
